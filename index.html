@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syntech Recruitment Solutions × AEI Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0B0E13;--surface:#13171F;--surface2:#1A1F2B;--surface3:#20263A;
+  --border:#232A38;--border2:#2E3650;
+  --gold:#C9A84C;--gold-l:#E8C96A;--gold-dim:rgba(201,168,76,0.08);
+  --text:#E8EAF0;--text2:#8B93A8;--text3:#505870;
+  --green:#3ECF8E;--green-dim:rgba(62,207,142,0.08);
+  --amber:#F59E0B;--amber-dim:rgba(245,158,11,0.08);
+  --red:#E05555;--red-dim:rgba(224,85,85,0.08);
+  --blue:#4A9EBF;--blue-dim:rgba(74,158,191,0.08);
+  --radius:6px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(11,14,19,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;justify-content:space-between;align-items:center;height:52px}
+.nav-logo{font-size:13px;font-weight:700;letter-spacing:0.06em}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:4px}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:12px;padding:6px 12px;border-radius:var(--radius);transition:all 0.15s}
+.nav-links a:hover{color:var(--text);background:var(--surface2)}
+.nav-badge{background:var(--gold);color:#000;font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;margin-left:8px}
+.nav-portal{background:var(--surface2);border:1px solid var(--border2);color:var(--gold);font-size:11px;padding:6px 14px;border-radius:var(--radius);text-decoration:none;font-weight:600;transition:all 0.15s}
+.nav-portal:hover{background:var(--gold);color:#000}
+
+/* HERO */
+.hero{padding:80px 48px 64px;max-width:1100px;margin:0 auto;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:0.1em;margin-bottom:16px}
+.hero-eyebrow span{color:var(--gold)}
+.hero h1{font-size:52px;font-weight:800;line-height:1.05;letter-spacing:-0.02em;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:17px;color:var(--text2);max-width:620px;line-height:1.65;margin-bottom:36px}
+.hero-meta{display:grid;grid-template-columns:repeat(3,auto);gap:32px;width:fit-content}
+.hero-meta-item{}
+.hero-meta-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.08em;margin-bottom:4px}
+.hero-meta-value{font-size:14px;font-weight:600;color:var(--text)}
+.hero-meta-value a{color:var(--gold);text-decoration:none}
+.hero-meta-value a:hover{text-decoration:underline}
+
+/* SECTION WRAPPER */
+.section{max-width:1100px;margin:0 auto;padding:64px 48px;border-bottom:1px solid var(--border)}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:32px}
+.section-num{background:var(--surface2);border:1px solid var(--border2);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:4px 8px;color:var(--text3)}
+.section-title{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--text2);letter-spacing:0.06em}
+h2{font-size:32px;font-weight:700;line-height:1.2;margin-bottom:8px}
+h3{font-size:20px;font-weight:700;margin-bottom:12px}
+.lead{font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:32px;max-width:760px}
+
+/* TABS */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:40px}
+.tab-btn{background:none;border:none;color:var(--text2);font-size:13px;font-weight:500;padding:12px 20px;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;font-family:'Inter',sans-serif}
+.tab-btn:hover{color:var(--text)}
+.tab-btn.active{color:var(--gold);border-bottom-color:var(--gold)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:24px 0}
+.tbl th{text-align:left;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--text3);letter-spacing:0.05em}
+.tbl td{padding:12px 14px;border:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.55}
+.tbl tr:hover td{background:var(--surface)}
+.tbl td strong{color:var(--text)}
+.tbl .highlight{background:rgba(201,168,76,0.04)}
+.tbl .highlight td{color:var(--text)}
+
+/* CARDS */
+.card-grid{display:grid;gap:16px}
+.card-grid-2{grid-template-columns:1fr 1fr}
+.card-grid-3{grid-template-columns:1fr 1fr 1fr}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.card-gold{border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.03)}
+.card-green{border-color:rgba(62,207,142,0.2);background:var(--green-dim)}
+.card h4{font-size:14px;font-weight:700;margin-bottom:6px}
+.card .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:10px;letter-spacing:0.05em}
+.card p{font-size:13px;color:var(--text2);line-height:1.55}
+.card .kv{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px}
+.card .kv:last-child{border-bottom:none}
+.card .kv-label{color:var(--text3)}
+.card .kv-val{font-weight:600;color:var(--text)}
+.card .kv-val.gold{color:var(--gold)}
+.card .kv-val.green{color:var(--green)}
+.card .kv-val.red{color:var(--red)}
+.card .kv-val.amber{color:var(--amber)}
+
+/* PROCESS STEPS */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{width:32px;height:32px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--text3);flex-shrink:0;margin-top:2px}
+.step-content h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.step-content p{font-size:13px;color:var(--text2);line-height:1.55}
+.step-content .step-meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-top:6px}
+
+/* TAGS */
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 9px;border-radius:3px;font-family:'JetBrains Mono',monospace}
+.tag-gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(201,168,76,0.3)}
+.tag-green{background:var(--green-dim);color:var(--green);border:1px solid rgba(62,207,142,0.2)}
+.tag-red{background:var(--red-dim);color:var(--red);border:1px solid rgba(224,85,85,0.2)}
+.tag-amber{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,158,11,0.2)}
+.tag-blue{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(74,158,191,0.2)}
+.tag-gray{background:var(--surface2);color:var(--text3);border:1px solid var(--border)}
+
+/* GUARANTEE */
+.guarantee-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-top:24px}
+.g-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.g-card .g-type{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:4px 8px;border-radius:3px;margin-bottom:12px;display:inline-block}
+.g-card h4{font-size:13px;font-weight:700;margin-bottom:6px}
+.g-card p{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:10px}
+.g-stats{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+
+/* SPONSOR */
+.sponsor-alert{background:rgba(224,85,85,0.06);border:1px solid rgba(224,85,85,0.25);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;display:flex;gap:14px;align-items:flex-start}
+.sponsor-alert-icon{color:var(--red);font-size:18px;font-weight:700;flex-shrink:0;margin-top:2px}
+.sponsor-alert-text{font-size:13px;line-height:1.55}
+.sponsor-alert-text strong{color:var(--red)}
+
+/* SLA */
+.sla-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+.sla-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px}
+.sla-item .sla-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);margin-bottom:6px;letter-spacing:0.05em}
+.sla-item .sla-value{font-size:22px;font-weight:700}
+.sla-item .sla-value.ok{color:var(--green)}
+.sla-item .sla-value.warn{color:var(--amber)}
+.sla-item .sla-status{font-size:11px;color:var(--text3);margin-top:4px}
+
+/* HUB SPECIFIC */
+.hub-hero{background:linear-gradient(135deg,rgba(201,168,76,0.06) 0%,transparent 60%);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius);padding:40px;margin-bottom:40px}
+.hub-hero .hex{font-size:28px;margin-bottom:12px}
+.hub-hero h2{font-size:36px;font-weight:800;line-height:1.1;margin-bottom:12px}
+.hub-hero h2 em{font-style:normal;color:var(--gold)}
+.hub-hero p{font-size:15px;color:var(--text2);max-width:700px;line-height:1.65}
+
+.hub-price-box{background:var(--surface);border:1px solid rgba(201,168,76,0.4);border-radius:var(--radius);padding:32px;text-align:center;margin:32px 0}
+.hub-price-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:0.08em;margin-bottom:8px}
+.hub-price-range{font-size:48px;font-weight:800;color:var(--gold);line-height:1}
+.hub-price-sub{font-size:13px;color:var(--text3);margin-top:8px}
+.hub-price-note{font-size:12px;color:var(--text2);margin-top:12px;line-height:1.5}
+
+/* AUDIT PHASE */
+.audit-section{background:rgba(74,158,191,0.05);border:1px solid rgba(74,158,191,0.2);border-radius:var(--radius);padding:32px;margin:32px 0}
+.audit-section .audit-badge{background:rgba(74,158,191,0.1);color:var(--blue);border:1px solid rgba(74,158,191,0.3);font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;padding:4px 10px;border-radius:3px;display:inline-block;margin-bottom:16px}
+.audit-section h3{font-size:22px;margin-bottom:8px}
+.audit-section .lead{margin-bottom:24px}
+.audit-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.audit-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.audit-step .num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);margin-bottom:6px;font-weight:700}
+.audit-step h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.audit-step p{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* DELIVERABLES */
+.deliverables{display:flex;flex-direction:column;gap:1px;margin:24px 0}
+.deliverable{display:grid;grid-template-columns:1fr 240px 180px;gap:16px;padding:14px 16px;background:var(--surface);align-items:start}
+.deliverable:first-child{background:var(--surface2);border-radius:var(--radius) var(--radius) 0 0}
+.deliverable:last-child{border-radius:0 0 var(--radius) var(--radius)}
+.deliverable-name{font-size:13px;font-weight:600}
+.deliverable-desc{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.45}
+.deliverable-market{font-size:12px;color:var(--text3)}
+.deliverable-hub{font-size:12px;font-weight:700;color:var(--green)}
+
+/* COMPARISON */
+.fee-comparison{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:24px 0}
+.fee-row{display:grid;grid-template-columns:180px 1fr 1fr 1fr;gap:16px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;align-items:center}
+.fee-row:last-child{border-bottom:none}
+.fee-row.header{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.05em;padding-bottom:12px}
+.fee-val{font-weight:600}
+.fee-val.green{color:var(--green)}
+.fee-val.gold{color:var(--gold)}
+.fee-val.red{color:var(--red)}
+
+/* PORTAL */
+.modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.module-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.module-card .mod-icon{font-size:18px;margin-bottom:10px}
+.module-card .mod-status{display:inline-block;background:var(--green-dim);color:var(--green);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-bottom:10px}
+.module-card h4{font-size:13px;font-weight:700;margin-bottom:6px}
+.module-card p{font-size:12px;color:var(--text2);line-height:1.5}
+
+/* NEXT STEPS */
+.actions-table{width:100%;border-collapse:collapse;margin-top:24px}
+.actions-table th{text-align:left;padding:10px 14px;background:var(--surface2);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.05em;border:1px solid var(--border)}
+.actions-table td{padding:12px 14px;border:1px solid var(--border);font-size:13px;color:var(--text2);vertical-align:top}
+.actions-table td strong{color:var(--text)}
+.actions-table .owner-syntech{color:var(--gold)}
+.actions-table .owner-aei{color:var(--blue)}
+.actions-table .owner-both{color:var(--green)}
+.urgent-row td{background:rgba(224,85,85,0.04)}
+
+/* FOOTER */
+footer{padding:40px 48px;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+footer .f-logo{font-size:13px;font-weight:700;letter-spacing:0.06em}
+footer .f-logo span{color:var(--gold)}
+footer .f-contact{font-size:12px;color:var(--text3)}
+footer .f-conf{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.05em}
+
+/* UTILS */
+.mono{font-family:'JetBrains Mono',monospace}
+.gold{color:var(--gold)}
+.green{color:var(--green)}
+.red{color:var(--red)}
+.amber{color:var(--amber)}
+.muted{color:var(--text2)}
+.dimmed{color:var(--text3)}
+.divider{height:1px;background:var(--border);margin:32px 0}
+.pill{background:var(--gold);color:#000;font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;display:inline-block;vertical-align:middle;margin-left:8px;font-family:'JetBrains Mono',monospace}
+.rec-badge{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 9px;border-radius:3px;display:inline-block;margin-bottom:6px}
+strong{color:var(--text)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">SYNTECH <span>RECRUITMENT</span></div>
+  <div class="nav-links">
+    <a href="#options">01 · Options</a>
+    <a href="#guarantee">02 · Guarantee</a>
+    <a href="#sponsorship">03 · Sponsorship</a>
+    <a href="#portal">04 · Portal</a>
+    <a href="#hub">⬡ Talent Hub</a>
+    <a href="#audit" style="color:var(--blue)">◎ Audit</a>
+    <a href="#nextsteps">05 · Next Steps</a>
+  </div>
+  <a href="https://brauner365.github.io/AEIATS/" target="_blank" class="nav-portal">↗ AEI Portal</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow"><span>SYNTECH RECRUITMENT SOLUTIONS</span> × AEI SYSTEMS · GROWTH PARTNERSHIP · CONFIDENTIAL</div>
+  <h1>Growth Partnership<br><em>Proposal & Meeting Guide</em></h1>
+  <div class="hero-sub">Prepared exclusively for AEI Systems Ltd. Four partnership models, a full replacement guarantee, UK sponsorship licensing, a live ATS portal, and the Exclusive Talent Hub — everything needed to scale AEI's hiring with one partner.</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">PREPARED FOR</div>
+      <div class="hero-meta-value">AEI Systems Ltd</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">PREPARED BY</div>
+      <div class="hero-meta-value">Syntech Recruitment Solutions</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hero-meta-label">PORTAL</div>
+      <div class="hero-meta-value"><a href="https://brauner365.github.io/AEIATS/" target="_blank">Live ↗</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 01 — PARTNERSHIP OPTIONS -->
+<div id="options" class="section">
+  <div class="section-label">
+    <div class="section-num">01</div>
+    <div class="section-title">PARTNERSHIP OPTIONS</div>
+  </div>
+  <h2>Partnership options for AEI Systems</h2>
+  <p class="lead">Syntech offers four ways to partner with AEI Systems. The right model — or combination — depends on the nature, volume, and seniority of your requirements. All options include full portal access, dedicated account management, and the Syntech replacement guarantee.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('model-comparison')">Model comparison</button>
+    <button class="tab-btn" onclick="showTab('retained')">Retained search</button>
+    <button class="tab-btn" onclick="showTab('rpo')">RPO</button>
+    <button class="tab-btn" onclick="showTab('contingency')">Exclusive contingency</button>
+    <button class="tab-btn" onclick="showTab('hub-overview')">⬡ Talent Hub</button>
+  </div>
+
+  <div id="model-comparison" class="tab-panel active">
+
+    <style>
+    .model-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+    .model-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:28px;position:relative;transition:border-color 0.2s}
+    .model-card:hover{border-color:var(--border2)}
+    .model-card.recommended{border-color:rgba(201,168,76,0.4);background:linear-gradient(135deg,rgba(201,168,76,0.04) 0%,var(--surface) 50%)}
+    .model-card .mc-rec{position:absolute;top:-1px;left:28px;background:var(--gold);color:#000;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;padding:3px 10px;border-radius:0 0 4px 4px;letter-spacing:0.06em}
+    .model-card .mc-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:0.08em;margin-bottom:10px}
+    .model-card h4{font-size:19px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em}
+    .model-card .mc-sub{font-size:12px;color:var(--text2);margin-bottom:20px;line-height:1.5;min-height:36px}
+    .model-card .mc-divider{height:1px;background:var(--border);margin-bottom:16px}
+    .model-card .mc-row{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;font-size:12px}
+    .model-card .mc-row:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.04)}
+    .model-card .mc-label{color:var(--text3);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.04em}
+    .model-card .mc-val{font-weight:600;color:var(--text);text-align:right;max-width:55%}
+    .model-card .mc-val.gold{color:var(--gold)}
+    .model-card .mc-val.green{color:var(--green)}
+    .model-card .mc-price{margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
+    .model-card .mc-price-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-bottom:4px}
+    .model-card .mc-price-val{font-size:16px;font-weight:700}
+    .model-card .mc-price-val.gold{color:var(--gold)}
+    .model-card .mc-cta{display:inline-block;margin-top:14px;font-size:12px;font-weight:600;color:var(--text3);text-decoration:none;transition:color 0.15s;cursor:pointer;background:none;border:none;padding:0;font-family:'Inter',sans-serif}
+    .model-card .mc-cta:hover{color:var(--gold)}
+    .rec-summary{border:1px solid rgba(201,168,76,0.2);border-radius:8px;padding:28px;background:rgba(201,168,76,0.02)}
+    .rec-summary-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:0.08em;margin-bottom:12px}
+    .rec-summary p{font-size:14px;color:var(--text2);line-height:1.7}
+    .rec-summary strong{color:var(--text)}
+    </style>
+
+    <div class="model-cards">
+
+      <div class="model-card">
+        <div class="mc-num">MODEL 01</div>
+        <h4>Retained Search</h4>
+        <div class="mc-sub">Senior, specialist, hard-to-fill roles. CNC Programmers, CAD/CAM Engineers, Quality Inspectors, Maintenance Engineers.</div>
+        <div class="mc-divider"></div>
+        <div class="mc-row"><span class="mc-label">EXCLUSIVITY</span><span class="mc-val">Full — from instruction</span></div>
+        <div class="mc-row"><span class="mc-label">CANDIDATE REACH</span><span class="mc-val">Active + passive market</span></div>
+        <div class="mc-row"><span class="mc-label">AEI OVERHEAD</span><span class="mc-val green">Low — named consultant</span></div>
+        <div class="mc-row"><span class="mc-label">GUARANTEE</span><span class="mc-val green">3 months — free replacement</span></div>
+        <div class="mc-price">
+          <div class="mc-price-label">COMMERCIAL</div>
+          <div class="mc-price-val">Staged fee</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:3px">Instruction → shortlist → placement</div>
+        </div>
+        <button class="mc-cta" onclick="document.querySelector('.tab-btn:nth-child(2)').click()">View 7-stage process →</button>
+      </div>
+
+      <div class="model-card">
+        <div class="mc-num">MODEL 02</div>
+        <h4>RPO</h4>
+        <div class="mc-sub">Rapid scale-up phases requiring consistent hiring volume. Syntech operates embedded as AEI's talent acquisition function. 10+ hires per year.</div>
+        <div class="mc-divider"></div>
+        <div class="mc-row"><span class="mc-label">EXCLUSIVITY</span><span class="mc-val">Full — AEI name used</span></div>
+        <div class="mc-row"><span class="mc-label">CANDIDATE REACH</span><span class="mc-val">Active + passive market</span></div>
+        <div class="mc-row"><span class="mc-label">AEI OVERHEAD</span><span class="mc-val green">Very low — Syntech embedded</span></div>
+        <div class="mc-row"><span class="mc-label">GUARANTEE</span><span class="mc-val green">3 months — free replacement</span></div>
+        <div class="mc-price">
+          <div class="mc-price-label">COMMERCIAL</div>
+          <div class="mc-price-val">Monthly fee + per-hire</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:3px">Reduced per-hire rate vs. contingency</div>
+        </div>
+        <button class="mc-cta" onclick="document.querySelector('.tab-btn:nth-child(3)').click()">View RPO detail →</button>
+      </div>
+
+      <div class="model-card">
+        <div class="mc-num">MODEL 03</div>
+        <h4>Exclusive Contingency</h4>
+        <div class="mc-sub">Volume and operational roles where speed is the priority. Stores, Production Operatives, Industrial Cleaners. Exclusive 2–4 week window.</div>
+        <div class="mc-divider"></div>
+        <div class="mc-row"><span class="mc-label">EXCLUSIVITY</span><span class="mc-val">2–4 week window</span></div>
+        <div class="mc-row"><span class="mc-label">CANDIDATE REACH</span><span class="mc-val">Active market</span></div>
+        <div class="mc-row"><span class="mc-label">AEI OVERHEAD</span><span class="mc-val">Moderate</span></div>
+        <div class="mc-row"><span class="mc-label">GUARANTEE</span><span class="mc-val" style="color:var(--amber)">Sliding scale rebate</span></div>
+        <div class="mc-price">
+          <div class="mc-price-label">COMMERCIAL</div>
+          <div class="mc-price-val">20% + 80%</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:3px">On instruction + 14 days after start</div>
+        </div>
+        <button class="mc-cta" onclick="document.querySelector('.tab-btn:nth-child(4)').click()">View contingency detail →</button>
+      </div>
+
+      <div class="model-card recommended">
+        <div class="mc-rec">⬡ RECOMMENDED</div>
+        <div class="mc-num" style="color:var(--gold);margin-top:18px">MODEL 04</div>
+        <h4 style="color:var(--gold)">Exclusive Talent Hub</h4>
+        <div class="mc-sub">Always-on dedicated recruitment capability built solely for AEI. 12+ hires per year. Pipelines built before vacancies open. Unlimited replacements included.</div>
+        <div class="mc-divider" style="background:rgba(201,168,76,0.2)"></div>
+        <div class="mc-row"><span class="mc-label">EXCLUSIVITY</span><span class="mc-val gold">Full — AEI only</span></div>
+        <div class="mc-row"><span class="mc-label">CANDIDATE REACH</span><span class="mc-val gold">Always-on — active + passive</span></div>
+        <div class="mc-row"><span class="mc-label">AEI OVERHEAD</span><span class="mc-val green">Very low</span></div>
+        <div class="mc-row"><span class="mc-label">GUARANTEE</span><span class="mc-val green">Unlimited — full agreement term</span></div>
+        <div class="mc-row"><span class="mc-label">DELIVERY FEE</span><span class="mc-val green">6% vs. 12.5% current — 52% lower</span></div>
+        <div class="mc-price" style="border-top-color:rgba(201,168,76,0.2)">
+          <div class="mc-price-label">MONTHLY FEE</div>
+          <div class="mc-price-val gold">£3,500–£6,000/month</div>
+          <div style="font-size:12px;color:var(--text3);margin-top:3px">Confirmed after pre-start audit · + 6% delivery fee per hire</div>
+        </div>
+        <button class="mc-cta" style="color:var(--gold)" onclick="document.getElementById('hub').scrollIntoView({behavior:'smooth'})">View full Talent Hub detail →</button>
+      </div>
+
+    </div>
+
+    <div class="rec-summary">
+      <div class="rec-summary-label">SYNTECH'S RECOMMENDATION FOR AEI SYSTEMS</div>
+      <p>For AEI Systems hiring 12 or more people per year, the <strong>Exclusive Talent Hub</strong> is Syntech's primary recommendation — it delivers lower cost per hire, always-on pipelines, unlimited replacements, and faster time-to-hire than any episodic model. Lead with <strong>retained search</strong> for specialist CNC and engineering roles while the Hub is being established. Use <strong>exclusive contingency</strong> for operational volume roles where speed is the priority. See the Talent Hub section for the full pre-start audit process, cost comparison, and interactive savings calculator.</p>
+    </div>
+
+  </div>
+
+  <div id="retained" class="tab-panel">
+    <div class="rec-badge">Recommended for specialist roles</div>
+    <h3>Retained exclusive search</h3>
+    <p class="lead">For CNC Programmers, CAD/CAM Programmers, and Quality Inspectors the candidate pool is small and predominantly passive. These individuals are not on job boards — they are in employment and need to be found through direct headhunt. Retained search is the only model that reaches this market effectively.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h4>Briefing and mandate confirmation</h4>
+              <p>Detailed job brief, salary benchmarking, market mapping, and Stage 1 fee.</p>
+              <div class="step-meta">Target: Day 1</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h4>Market research and candidate identification</h4>
+              <p>Full sector mapping — passive headhunt plus active market sweep. No action required from AEI.</p>
+              <div class="step-meta">Days 1–5</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h4>Approach, qualification, and screening</h4>
+              <p>Technical and cultural alignment check. Controls, materials, shift flexibility, and salary expectations confirmed.</p>
+              <div class="step-meta">Days 3–8</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <h4>Longlist review</h4>
+              <p>Qualified longlist with full candidate summaries presented to AEI for internal review.</p>
+              <div class="step-meta">Day 8</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <h4>Shortlist delivery via portal</h4>
+              <p>CVs, salary expectations, right-to-work status, and Syntech's assessment presented on portal. Stage 2 fee invoiced.</p>
+              <div class="step-meta">Day 10</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-content">
+              <h4>Interview coordination and feedback</h4>
+              <p>Syntech schedules and briefs all parties. AEI submits structured feedback via portal within 48 hours.</p>
+              <div class="step-meta">Days 12–18</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">7</div>
+            <div class="step-content">
+              <h4>Offer management and placement</h4>
+              <p>Syntech leads salary negotiation. Placement fee invoiced on start date confirmation.</p>
+              <div class="step-meta">Days 18–24</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:16px">
+          <h4>Commercial terms</h4>
+          <div class="kv"><span class="kv-label">Exclusivity</span><span class="kv-val">Full — from date of instruction</span></div>
+          <div class="kv"><span class="kv-label">Invoice terms</span><span class="kv-val">14 days from invoice date</span></div>
+          <div class="kv"><span class="kv-label">Guarantee</span><span class="kv-val green">3 months — see Section 02</span></div>
+        </div>
+        <div class="card">
+          <h4>SLA framework</h4>
+          <div class="kv"><span class="kv-label">Briefing to longlist</span><span class="kv-val green">5 working days</span></div>
+          <div class="kv"><span class="kv-label">Longlist to shortlist</span><span class="kv-val green">5 working days</span></div>
+          <div class="kv"><span class="kv-label">CV:interview ratio</span><span class="kv-val green">Min 3:1</span></div>
+          <div class="kv"><span class="kv-label">Interview-to-offer</span><span class="kv-val green">Min 2:1</span></div>
+          <div class="kv"><span class="kv-label">Post-interview feedback</span><span class="kv-val">48 hours</span></div>
+          <div class="kv"><span class="kv-label">Weekly status update</span><span class="kv-val">Every Friday</span></div>
+        </div>
+        <div class="card" style="margin-top:16px">
+          <h4>Current AEI portal performance</h4>
+          <div class="kv"><span class="kv-label">Avg. days to shortlist</span><span class="kv-val green">9.8 days ✓</span></div>
+          <div class="kv"><span class="kv-label">CV:interview ratio</span><span class="kv-val green">3.2:1 ✓</span></div>
+          <div class="kv"><span class="kv-label">Interview-to-offer</span><span class="kv-val green">2.2:1 ✓</span></div>
+          <div class="kv"><span class="kv-label">Feedback within 48h</span><span class="kv-val amber">Below target ⚠</span></div>
+          <div class="kv"><span class="kv-label">Overall SLA score</span><span class="kv-val amber">78%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rpo" class="tab-panel">
+    <h3>RPO — Recruitment Process Outsourcing</h3>
+    <p class="lead">Syntech operates as AEI's embedded talent acquisition function — hiring in AEI's name across all open roles, managing the full process end-to-end. AEI retains final decision-making; Syntech manages everything else.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="kv"><span class="kv-label">Branding</span><span class="kv-val">Syntech recruits in AEI Systems' name</span></div>
+        <div class="kv"><span class="kv-label">Commercial</span><span class="kv-val">Monthly management fee + reduced per-hire fee</span></div>
+        <div class="kv"><span class="kv-label">Portal</span><span class="kv-val">Full real-time pipeline, analytics, and reporting</span></div>
+        <div class="kv"><span class="kv-label">Trigger point</span><span class="kv-val">10+ hires within a 12-month period</span></div>
+        <div class="kv"><span class="kv-label">Guarantee</span><span class="kv-val green">3 months — free replacement</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contingency" class="tab-panel">
+    <h3>Exclusive contingency</h3>
+    <p class="lead">Syntech is granted an exclusive 2–4 week window to fill the role. Suitable for operational roles where speed is the priority. Fee split: 20% upfront on instruction to cover marketing and outreach, 80% payable 14 days after the candidate's confirmed start date.</p>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <div class="kv"><span class="kv-label">Exclusivity window</span><span class="kv-val">Typically 2–4 weeks from instruction</span></div>
+        <div class="kv"><span class="kv-label">Best for</span><span class="kv-val">Stores, Production Operatives, Industrial Cleaners</span></div>
+        <div class="kv"><span class="kv-label">20% on instruction</span><span class="kv-val">Covers marketing, outreach, and sourcing</span></div>
+        <div class="kv"><span class="kv-label">80% on placement</span><span class="kv-val">Payable 14 days after confirmed start</span></div>
+        <div class="kv"><span class="kv-label">Guarantee</span><span class="kv-val amber">Sliding scale rebate — see Section 02</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hub-overview" class="tab-panel">
+    <div class="rec-badge">⬡ Exclusive — 12+ hires per year</div>
+    <h3>Exclusive Talent Hub</h3>
+    <p class="lead">Not agency recruitment — a full-time, dedicated recruitment capability deployed by Syntech solely for AEI. Pipelines built and maintained every working day across all role types. Talent pools created before vacancies open. Unlimited replacements during the agreement term at no additional fee.</p>
+    <div class="card card-gold">
+      <div class="kv"><span class="kv-label">Monthly Hub fee</span><span class="kv-val gold">£3,500–£6,000/month <span style="font-size:11px;color:var(--text3)">(after audit)</span></span></div>
+      <div class="kv"><span class="kv-label">Delivery fee per hire</span><span class="kv-val gold">6% of salary</span></div>
+      <div class="kv"><span class="kv-label">vs. current rate</span><span class="kv-val green">52% lower per hire than 12.5%</span></div>
+      <div class="kv"><span class="kv-label">Replacements</span><span class="kv-val green">Unlimited — included</span></div>
+      <div class="kv"><span class="kv-label">Pipeline building</span><span class="kv-val">Always-on — included</span></div>
+      <div class="kv"><span class="kv-label">Trigger point</span><span class="kv-val">12+ hires per year</span></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:16px"><a href="#hub" style="color:var(--gold)">View full Talent Hub detail →</a></p>
+  </div>
+</div>
+
+<!-- SECTION 02 — GUARANTEE -->
+<div id="guarantee" class="section">
+  <div class="section-label">
+    <div class="section-num">02</div>
+    <div class="section-title">REPLACEMENT GUARANTEE</div>
+  </div>
+  <h2>The Syntech guarantee</h2>
+  <p class="lead">All permanent placements carry a three-month guarantee from the candidate's confirmed start date. Retained search and RPO placements receive a free unconditional replacement. Exclusive contingency placements are covered by a sliding scale fee rebate.</p>
+
+  <div class="guarantee-grid">
+    <div class="g-card">
+      <div class="g-type tag-green">Free replacement</div>
+      <h4>Retained search & RPO</h4>
+      <p>If any placed candidate leaves within 3 months, Syntech conducts a full replacement search at no additional cost. No rebate calculation, no instruction fee.</p>
+      <div class="g-stats">
+        <span>Free replacement</span>
+        <span>3 months from start</span>
+        <span>Full market coverage</span>
+      </div>
+    </div>
+    <div class="g-card">
+      <div class="g-type tag-amber">Sliding scale</div>
+      <h4>Exclusive contingency</h4>
+      <p>Fee rebate on a sliding scale — reducing over 12 weeks. Wks 1–4: 100% rebate or free replacement at AEI's choice.</p>
+      <div class="g-stats">
+        <span>Wks 1–4: 100% or replacement</span>
+        <span>Wks 5–7: 50% rebate</span>
+        <span>Wks 8–10: 25% rebate</span>
+        <span>Wks 11–12: 10% rebate</span>
+      </div>
+    </div>
+    <div class="g-card">
+      <div class="g-type tag-gold">Unlimited</div>
+      <h4>Exclusive Talent Hub</h4>
+      <p>No rebate model, no staged structure. Any hire who leaves during the agreement term is replaced at no additional delivery fee, without limit.</p>
+      <div class="g-stats">
+        <span>Unlimited — full term</span>
+        <span>£0 delivery fee</span>
+        <span>Faster — pipelines always maintained</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:rgba(224,85,85,0.04);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-top:24px;font-size:13px;color:var(--text2)">
+    <strong>Exclusions — all models:</strong> The guarantee does not apply where the placed candidate is made redundant, the role is withdrawn for operational reasons, or employment is terminated for gross misconduct unrelated to capability. AEI must notify Syntech in writing within 5 working days of the triggering event.
+  </div>
+</div>
+
+<!-- SECTION 03 — SPONSORSHIP -->
+<div id="sponsorship" class="section">
+  <div class="section-label">
+    <div class="section-num">03</div>
+    <div class="section-title">UK SPONSORSHIP LICENSING</div>
+  </div>
+  <h2>UK Sponsorship — complete guide</h2>
+  <p class="lead">Since January 2021, UK employers must hold a Home Office sponsor licence to hire most workers from outside the UK. Syntech's current pipeline for AEI includes candidates from Poland, Germany, Brazil, and Ghana across CNC and quality roles.</p>
+
+  <div class="sponsor-alert">
+    <div class="sponsor-alert-icon">⚠</div>
+    <div class="sponsor-alert-text"><strong>Act now — James Nowak:</strong><span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span> CNC Operator, Polish national. Skilled Worker visa expires <strong>17 August 2026 — 40 days away.</strong> AEI must assign a new CoS via SMS and submit an extension application now. Syntech can connect AEI with an immigration solicitor this week. Live on the portal Sponsorship tab.</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('sponsor-overview')">Overview</button>
+    <button class="tab-btn" onclick="showTab('sponsor-process')">Application process</button>
+    <button class="tab-btn" onclick="showTab('sponsor-costs')">2026 costs</button>
+    <button class="tab-btn" onclick="showTab('sponsor-roles')">AEI roles & thresholds</button>
+    <button class="tab-btn" onclick="showTab('sponsor-duties')">Ongoing duties</button>
+    <button class="tab-btn" onclick="showTab('sponsor-routes')">Visa routes</button>
+  </div>
+
+  <div id="sponsor-overview" class="tab-panel active">
+    <div class="card-grid card-grid-2">
+      <div class="card card-gold">
+        <div class="meta">PRIMARY RECOMMENDATION</div>
+        <h4>Worker licence — Skilled Worker route</h4>
+        <p style="margin-bottom:12px">A single licence application covering the Skilled Worker route as primary. Additional sub-routes can be added at any time without reapplying.</p>
+        <div class="kv"><span class="kv-label">Skilled Worker route</span><span class="kv-val">Up to 5 years, pathway to ILR</span></div>
+        <div class="kv"><span class="kv-label">Licence validity</span><span class="kv-val">4 years — auto-renews</span></div>
+        <div class="kv"><span class="kv-label">Standard processing</span><span class="kv-val amber">~8 weeks</span></div>
+        <div class="kv"><span class="kv-label">Priority service (+£750)</span><span class="kv-val green">~10 working days</span></div>
+        <div class="kv"><span class="kv-label">Recommendation</span><span class="kv-val red">Apply now — urgent</span></div>
+      </div>
+      <div class="card">
+        <div class="meta">DOES AEI NEED A LICENCE?</div>
+        <h4>Yes — immediately relevant</h4>
+        <p>To hire any candidate without UK right to work, a sponsor licence is required. Syntech has candidates from Poland, Germany, Brazil, and Ghana in the current AEI pipeline. One urgent live case: James Nowak's Skilled Worker visa expires in 40 days.<span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="sponsor-process" class="tab-panel">
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-content"><h4>Eligibility check and key personnel</h4><p>Confirm AEI is a genuine UK-trading entity. Appoint the Authorising Officer (AO) — a senior employee or director legally responsible for the licence — and at least one Level 1 User to operate the SMS.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-content"><h4>HR systems and compliance audit</h4><p>Before applying, AEI must have documented, operational processes for right-to-work checks, personnel record-keeping per Appendix D, and a system for reporting changes within 10 working days.</p><div class="step-meta">Inadequate HR systems are the most common reason for post-grant licence revocation.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-content"><h4>Gather supporting documents — Appendix A</h4><p>Certificate of Incorporation; employer's liability insurance (minimum £5m cover); UK business bank statements (last 3 months); VAT registration certificate; latest filed accounts; organisation chart.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-content"><h4>Submit online via UKVI portal</h4><p>Fee paid at submission — non-refundable on refusal. Specify routes required and estimated year-one CoS allocation. The Authorising Officer must personally make the application.</p></div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-content"><h4>Processing and outcome</h4><p>Standard: ~8 weeks. Priority (+£750): ~10 working days. On approval, AEI receives an A-rated licence valid 4 years with automatic renewal.</p></div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-content"><h4>Assign Certificates of Sponsorship per hire</h4><p>For each sponsored worker, AEI assigns a CoS via the SMS. The worker uses the CoS reference to apply for their visa. AEI pays the CoS fee (£525) and Immigration Skills Charge — both tracked in the Syntech portal.</p></div></div>
+    </div>
+  </div>
+
+  <div id="sponsor-costs" class="tab-panel">
+    <table class="tbl">
+      <thead><tr><th>Cost item</th><th>Small sponsor</th><th>Med / large</th><th>Paid by</th></tr></thead>
+      <tbody>
+        <tr><td>Licence application fee</td><td>£611</td><td>£1,682</td><td>Employer — non-refundable</td></tr>
+        <tr><td>Priority service (optional)</td><td>+£750</td><td>+£750</td><td>Employer</td></tr>
+        <tr><td>Certificate of Sponsorship (per hire)</td><td>£525</td><td>£525</td><td>Employer</td></tr>
+        <tr><td>Immigration Skills Charge (3yr)</td><td>£1,440</td><td>£3,960</td><td>Employer — cannot recover</td></tr>
+        <tr><td>Skilled Worker visa application</td><td>£769–£1,519</td><td>Same</td><td>Worker</td></tr>
+        <tr><td>Immigration solicitor (recommended)</td><td>£1,500–£3,000</td><td>Same</td><td>Employer</td></tr>
+        <tr class="highlight"><td><strong>Estimated total employer cost (3yr visa)</strong></td><td><strong>~£4,000–£5,500</strong></td><td><strong>~£7,000–£9,000</strong></td><td>Excl. salary</td></tr>
+      </tbody>
+    </table>
+    <div style="background:var(--amber-dim);border:1px solid rgba(245,158,11,0.2);border-radius:var(--radius);padding:14px 18px;margin-top:16px;font-size:13px;color:var(--text2)">
+      <strong class="amber">Minimum salary from 22 July 2025:</strong> £41,700 per year or the occupation's going rate, whichever is higher. This creates specific challenges for manufacturing roles.
+    </div>
+  </div>
+
+  <div id="sponsor-roles" class="tab-panel">
+    <table class="tbl">
+      <thead><tr><th>Role</th><th>Typical AEI salary</th><th>SOC code</th><th>Sponsorable?</th><th>Route / note</th></tr></thead>
+      <tbody>
+        <tr><td>CNC Programmer</td><td>£34,000–£42,000</td><td>3112</td><td><span class="tag tag-amber">Borderline</span></td><td>Skilled Worker if salary meets going rate</td></tr>
+        <tr><td>CAD/CAM Programmer</td><td>£36,000–£45,000</td><td>3112</td><td><span class="tag tag-green">Often yes</span></td><td>Skilled Worker — viable at senior salary</td></tr>
+        <tr><td>Quality Inspector</td><td>£27,000–£34,000</td><td>3113</td><td><span class="tag tag-red">No</span></td><td>Below threshold — check ISL listing</td></tr>
+        <tr><td>CNC Operator</td><td>£24,000–£30,000</td><td>5223</td><td><span class="tag tag-red">No</span></td><td>Below threshold — SOC 5223 on ISL historically</td></tr>
+        <tr><td>Maintenance Engineer</td><td>£32,000–£42,000</td><td>5224</td><td><span class="tag tag-amber">Borderline</span></td><td>Viable at higher end — confirm going rate</td></tr>
+        <tr><td>Stores / Warehouse</td><td>£22,000–£26,000</td><td>9260</td><td><span class="tag tag-red">No</span></td><td>Not sponsorable at this salary range</td></tr>
+        <tr><td>Production Operative</td><td>£22,000–£27,000</td><td>8129</td><td><span class="tag tag-red">No</span></td><td>Not sponsorable at this salary range</td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:12px;color:var(--text3);margin-top:12px;line-height:1.6"><strong style="color:var(--amber)">ISL note:</strong> The Immigration Salary List is being phased out by 31 December 2026. All CoS assignments below £41,700 must be reviewed with an immigration solicitor before proceeding.</div>
+  </div>
+
+  <div id="sponsor-duties" class="tab-panel">
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <h4>Record-keeping — Appendix D</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>Passport copy and BRP or e-visa documentation — kept current</li>
+          <li>Signed employment contract matching the CoS details</li>
+          <li>Payroll and salary records — must match CoS salary</li>
+          <li>Attendance and absence records</li>
+          <li>Recruitment evidence — interview notes</li>
+          <li>National Insurance number and full UK contact address</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>SMS reporting — 10 working day rule</h4>
+        <ul style="font-size:13px;color:var(--text2);padding-left:16px;line-height:2">
+          <li>Worker does not start on expected start date</li>
+          <li>Worker's employment ends for any reason</li>
+          <li>Significant change in salary, title, or core duties</li>
+          <li>Change of work location</li>
+          <li>Worker absent 10+ consecutive days without authorisation</li>
+          <li>Change in AEI's legal structure, name, or ownership</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:rgba(62,207,142,0.05);border:1px solid rgba(62,207,142,0.15);border-radius:var(--radius);padding:16px 20px;margin-top:24px;font-size:13px;color:var(--text2)">
+      <strong class="green">Syntech portal — sponsorship compliance module:</strong> The AEI Systems portal tracks right-to-work status for every placed candidate, provides automated visa expiry alerts at 90, 60, and 30 days, surfaces SMS reporting tasks with the 10-day deadline countdown, logs every CoS assignment, and exports a dated PDF workforce snapshot for UKVI audits.
+    </div>
+  </div>
+
+  <div id="sponsor-routes" class="tab-panel">
+    <table class="tbl">
+      <thead><tr><th>Visa route</th><th>Purpose</th><th>Min. salary</th><th>Duration</th><th>Relevant to AEI?</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Skilled Worker</strong></td><td>Long-term skilled employment</td><td>£41,700 or going rate</td><td>Up to 5 years; pathway to ILR</td><td><span class="tag tag-green">Primary route</span></td></tr>
+        <tr><td>Senior / Specialist Worker</td><td>Intracompany transfers (GBM)</td><td>£48,500 or going rate</td><td>Up to 5 years; no ILR pathway</td><td>If AEI has overseas operations</td></tr>
+        <tr><td>Scale-up Worker</td><td>High-growth companies</td><td>£36,300</td><td>2 years (6 months sponsored)</td><td>Explore if AEI qualifies</td></tr>
+        <tr><td>Graduate Visa</td><td>International UK graduates — no sponsor needed</td><td>No minimum</td><td>2 years (3 if PhD)</td><td><span class="tag tag-blue">Useful pipeline</span></td></tr>
+        <tr><td>EU Settled / Pre-Settled</td><td>EU/EEA nationals under EUSS</td><td>No minimum</td><td>Indefinite or 5 years</td><td>No sponsorship needed</td></tr>
+      </tbody>
+    </table>
+    <div style="background:var(--blue-dim);border:1px solid rgba(74,158,191,0.2);border-radius:var(--radius);padding:14px 18px;margin-top:16px;font-size:13px;color:var(--text2)">
+      <strong class="blue">Graduate Visa pipeline strategy:</strong> Several of Syntech's strongest engineering candidates are international graduates from UK universities currently on Graduate Visas. AEI can hire these candidates with no sponsor licence required during the Graduate Visa period, then sponsor them to Skilled Worker when expiring.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 04 — PORTAL -->
+<div id="portal" class="section">
+  <div class="section-label">
+    <div class="section-num">04</div>
+    <div class="section-title">CLIENT PORTAL & ATS</div>
+  </div>
+  <h2>AEI Systems portal</h2>
+  <p class="lead">A bespoke applicant tracking system built for AEI Systems, live now at <a href="https://brauner365.github.io/AEIATS/" target="_blank" style="color:var(--gold)">brauner365.github.io/AEIATS</a>. Seven fully functional modules — provided at no additional cost as part of the Syntech growth partnership.</p>
+
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:32px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);margin-bottom:6px">LIVE ATS</div>
+      <div style="font-size:15px;font-weight:600">brauner365.github.io/AEIATS</div>
+    </div>
+    <a href="https://brauner365.github.io/AEIATS/" target="_blank" style="background:var(--gold);color:#000;font-weight:700;font-size:13px;padding:10px 20px;border-radius:var(--radius);text-decoration:none">Open Portal ↗</a>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px">
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:800;color:var(--gold)">18</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:4px">CANDIDATES IN PIPELINE</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:800;color:var(--amber)">8</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:4px">AWAITING AEI REVIEW</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:800;color:var(--red)">40</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:4px">DAYS — JAMES NOWAK VISA <span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span></div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div style="font-size:28px;font-weight:800;color:var(--green)">7</div>
+      <div style="font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-top:4px">PORTAL MODULES LIVE</div>
+    </div>
+  </div>
+
+  <div class="modules-grid">
+    <div class="module-card"><div class="mod-icon">⬡</div><div class="mod-status">LIVE</div><h4>Dashboard</h4><p>Live feedback queue, pipeline funnel, SLA RAG status per role, 12-week activity chart, and open roles vs 21-day SLA target bar chart.</p></div>
+    <div class="module-card"><div class="mod-icon">◉</div><div class="mod-status">LIVE</div><h4>Candidates</h4><p>Full register with RTW status flags, pipeline stage, and review/feedback actions. Clickable profiles showing controls experience, CAM software, materials, qualifications.</p></div>
+    <div class="module-card"><div class="mod-icon">⟳</div><div class="mod-status">LIVE</div><h4>Pipeline Kanban</h4><p>7-stage board with real candidate data. Dave Thornton, Pavel Beneš, Karen Mills — and all other candidate names shown.<span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span> Filterable by role.</p></div>
+    <div class="module-card"><div class="mod-icon">◈</div><div class="mod-status">LIVE</div><h4>Compare</h4><p>Side-by-side shortlist comparison — salary, controls, materials, qualifications, notice period, and estimated sponsorship cost. Candidate names shown are illustrative.<span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span></p></div>
+    <div class="module-card"><div class="mod-icon">📊</div><div class="mod-status">LIVE</div><h4>Analytics — 6 live charts</h4><p>Pipeline funnel (47 sourced → 4 hired), source channel donut (44% direct headhunt), 12-week volume line chart, RTW split donut, SLA performance bars.</p></div>
+    <div class="module-card"><div class="mod-icon">🪪</div><div class="mod-status">LIVE</div><h4>Sponsorship tracker</h4><p>Riko Tanaka, James Nowak and all individuals shown are example data.<span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span> Pipeline candidates flagged by nationality, salary threshold, ISL eligibility, and CoS cost estimates.</p></div>
+    <div class="module-card"><div class="mod-icon">📝</div><div class="mod-status">LIVE</div><h4>Submit vacancy</h4><p>Manufacturing-tailored brief form — role type, shift pattern, machine and control requirements, materials, salary, right-to-work preference, and target start date.</p></div>
+    <div class="module-card"><div class="mod-icon">🛡</div><div class="mod-status">LIVE</div><h4>Sponsorship compliance</h4><p>RTW register filterable by status. Visa expiry alerts at 90/60/30 days. SMS reporting task list with deadline countdown. Full CoS log. PDF export for UKVI audit.</p></div>
+  </div>
+</div>
+
+<!-- SECTION HUB — EXCLUSIVE TALENT HUB -->
+<div id="hub" class="section">
+  <div class="section-label">
+    <div class="section-num">⬡</div>
+    <div class="section-title">EXCLUSIVE TALENT HUB — RECOMMENDED</div>
+  </div>
+
+  <div class="hub-hero">
+    <div class="hex">⬡</div>
+    <h2>Everything AEI needs.<br><em>One partnership. One fee.</em></h2>
+    <p>Not agency recruitment — a full-time, dedicated recruitment capability deployed by Syntech solely for AEI Systems. Purpose-built ATS. Always-on pipelines. Full salary benchmarking. UK and Turkey visibility in one platform. Unlimited replacements. Structural alignment across every hire from day one.</p>
+  </div>
+
+  <!-- PRE-START AUDIT — NEW SECTION -->
+  <div class="audit-section">
+    <div class="audit-badge">PHASE 0 — BEFORE THE HUB GOES LIVE</div>
+    <h3>Pre-start audit & strategy build</h3>
+    <p class="lead">Before we price the Hub or write a single job brief, Syntech carries out a full audit of AEI's hiring plans, workforce structure, and recruitment history. This is not a discovery call — it is a structured engagement that ensures the Hub is built for what AEI actually needs, not a generic template. The audit also determines where the monthly fee lands within the £3,500–£6,000 range.</p>
+    <div class="audit-steps">
+      <div class="audit-step">
+        <div class="num">AUDIT 01</div>
+        <h4>Hiring plan review</h4>
+        <p>Full review of AEI's 12-month hiring forecast across all role types and both territories. Headcount by department, projected start dates, and any known pipeline risks.</p>
+      </div>
+      <div class="audit-step">
+        <div class="num">AUDIT 02</div>
+        <h4>Current process audit</h4>
+        <p>Review of AEI's existing recruitment workflow — time-to-hire by role, agency relationships, offer acceptance rates, and where the current process breaks down.</p>
+      </div>
+      <div class="audit-step">
+        <div class="num">AUDIT 03</div>
+        <h4>Salary benchmarking baseline</h4>
+        <p>Syntech benchmarks AEI's current salary ranges against the Ascot corridor market. Identifies where AEI is competitive, where it is losing candidates at offer stage, and where salary needs to move.</p>
+      </div>
+      <div class="audit-step">
+        <div class="num">AUDIT 04</div>
+        <h4>Right-to-work & sponsorship audit</h4>
+        <p>Full audit of AEI's current workforce RTW status, existing sponsored workers, upcoming visa expirations, and pipeline requirements that will need sponsorship.</p>
+      </div>
+      <div class="audit-step">
+        <div class="num">AUDIT 05</div>
+        <h4>Recruitment strategy build</h4>
+        <p>Syntech and AEI build the hiring strategy together — role prioritisation, sourcing channels by role type, employer brand positioning, and interview process design.</p>
+      </div>
+      <div class="audit-step">
+        <div class="num">AUDIT 06</div>
+        <h4>Hub configuration & pricing</h4>
+        <p>Based on audit findings, Syntech configures the ATS, builds role templates, and confirms the monthly Hub fee within the £3,500–£6,000 range. Agreement signed. Hub goes live.</p>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;color:var(--text2)">
+      <strong>Timeline:</strong> The pre-start audit typically takes 5–7 working days. No Hub fee is charged during the audit period. The first month's fee is invoiced on the date the Hub formally goes live — once the strategy is agreed, the ATS is configured, and Syntech commences active sourcing.
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="hub-price-box">
+    <div class="hub-price-label">MONTHLY HUB FEE</div>
+    <div class="hub-price-range">£3,500–£6,000</div>
+    <div class="hub-price-sub">per month · fixed for the agreement term · confirmed after pre-start audit</div>
+    <div class="hub-price-note">The monthly fee is determined by the scope confirmed in the pre-start audit — the complexity of AEI's role portfolio, the number of territories covered, and the volume of always-on pipelining required. Simple, single-territory requirements sit toward £3,500/month. Complex multi-territory briefs with a wide role portfolio sit toward £6,000/month. The audit removes all ambiguity before any commitment is made.</div>
+  </div>
+
+  <div class="card-grid card-grid-2" style="margin-bottom:32px">
+    <div class="card card-gold">
+      <div class="meta">COMPONENT 1 — FIXED MONTHLY</div>
+      <h4 style="font-size:20px">£3,500–£6,000/month</h4>
+      <p style="margin-bottom:16px">£42,000–£72,000 per year · fixed regardless of hire volume · confirmed after audit</p>
+      <div class="kv"><span class="kv-label">Purpose-built ATS (UK & Turkey)</span><span class="kv-val green">Included</span></div>
+      <div class="kv"><span class="kv-label">Always-on pipelining — 365 days</span><span class="kv-val green">Included</span></div>
+      <div class="kv"><span class="kv-label">Salary benchmarking — quarterly</span><span class="kv-val green">Included</span></div>
+      <div class="kv"><span class="kv-label">Unlimited replacements — full term</span><span class="kv-val green">Included — £0</span></div>
+      <div class="kv"><span class="kv-label">Hiring manager support — both territories</span><span class="kv-val green">Included</span></div>
+      <div class="kv"><span class="kv-label">Weekly reporting & quarterly review</span><span class="kv-val green">Included</span></div>
+      <div class="kv"><span class="kv-label">Pre-start audit & strategy build</span><span class="kv-val green">Included</span></div>
+    </div>
+    <div class="card">
+      <div class="meta">COMPONENT 2 — PER SUCCESSFUL HIRE</div>
+      <h4 style="font-size:20px">6% of first-year salary</h4>
+      <p style="margin-bottom:16px">vs. AEI's current rate of 12.5% — a 52% reduction per hire</p>
+      <div class="kv"><span class="kv-label">AEI current fee rate</span><span class="kv-val red">12.5% per hire</span></div>
+      <div class="kv"><span class="kv-label">Talent Hub delivery fee</span><span class="kv-val green">6% per hire</span></div>
+      <div class="kv"><span class="kv-label">Reduction per hire</span><span class="kv-val green">52% lower</span></div>
+      <div class="kv"><span class="kv-label">On £40,000 salary — current fee</span><span class="kv-val red">£5,000</span></div>
+      <div class="kv"><span class="kv-label">On £40,000 salary — Hub fee</span><span class="kv-val green">£2,400</span></div>
+      <div class="kv"><span class="kv-label">Saving per placement</span><span class="kv-val green">£2,600</span></div>
+      <div class="kv"><span class="kv-label">Replacement hires</span><span class="kv-val green">£0 delivery fee — unlimited</span></div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <h3 style="margin-bottom:16px">What AEI receives — and what it would cost separately</h3>
+  <div class="deliverables">
+    <div class="deliverable" style="background:var(--surface2);font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.05em;padding:10px 16px;border-radius:var(--radius) var(--radius) 0 0">
+      <div>WHAT'S INCLUDED</div><div>MARKET COST SEPARATELY</div><div>THROUGH THE HUB</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">Purpose-built ATS — UK & Turkey</div><div class="deliverable-desc">Built specifically for AEI, covering both territories. No licence fee, no implementation cost, no annual renewal.</div></div>
+      <div class="deliverable-market">£4,000–£10,000/yr licence + set-up</div>
+      <div class="deliverable-hub">Included</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">Pre-start audit & strategy build</div><div class="deliverable-desc">Full hiring audit, workforce analysis, salary benchmarking baseline, and strategy build with AEI before the Hub goes live.</div></div>
+      <div class="deliverable-market">£3,000–£6,000 as standalone engagement</div>
+      <div class="deliverable-hub">Included</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">Always-on talent pipelining — 365 days</div><div class="deliverable-desc">Dedicated passive sourcing and candidate engagement across all AEI role types in the Ascot corridor.</div></div>
+      <div class="deliverable-market">£1,500–£3,000/month · £18,000–£36,000/yr</div>
+      <div class="deliverable-hub">Included</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">Salary benchmarking — UK & Turkey, quarterly</div><div class="deliverable-desc">Covering all AEI role types across both territories. Quarterly refresh. On-demand access via portal.</div></div>
+      <div class="deliverable-market">~£5,000 per exercise · £20,000/yr quarterly</div>
+      <div class="deliverable-hub">Included</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">Unlimited replacement hires — full term</div><div class="deliverable-desc">No rebate, no delivery fee. Any hire who leaves during the agreement term is replaced at no extra cost.</div></div>
+      <div class="deliverable-market">£5,000–£10,000/yr (1–2 replacements typical)</div>
+      <div class="deliverable-hub">Included — £0</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">UK & Turkey cross-border visibility</div><div class="deliverable-desc">One platform, same data, same reporting for both territories. Identical recruitment standards applied from day one.</div></div>
+      <div class="deliverable-market">Not available from standard agency recruitment</div>
+      <div class="deliverable-hub">Included</div>
+    </div>
+    <div class="deliverable">
+      <div><div class="deliverable-name">Weekly reporting & quarterly business review</div><div class="deliverable-desc">Live pipeline data every Friday. Quarterly MI pack with benchmark data, market trends, and workforce planning intelligence.</div></div>
+      <div class="deliverable-market">Not provided by standard contingency agencies</div>
+      <div class="deliverable-hub">Included</div>
+    </div>
+    <div class="deliverable" style="background:rgba(201,168,76,0.04)">
+      <div><div class="deliverable-name" style="color:var(--gold)">Talent Hub annual fee</div><div class="deliverable-desc">Everything above. One fee. One partner.</div></div>
+      <div class="deliverable-market" style="color:var(--red)">£30,000–£70,000+ if sourced separately</div>
+      <div class="deliverable-hub" style="font-size:14px">£42,000–£72,000/yr<br><span style="font-size:11px;color:var(--text3)">confirmed after audit</span></div>
+    </div>
+  </div>
+
+  <!-- AGREEMENT TERMS -->
+  <h3 style="margin-top:40px;margin-bottom:16px">Agreement structure</h3>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>Monthly fee</th><th>Delivery fee</th><th>Replacements</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr class="highlight">
+        <td><strong>12-month agreement</strong> <span class="pill">RECOMMENDED</span></td>
+        <td><strong class="gold">£3,500–£6,000/month</strong></td>
+        <td>6% per hire</td>
+        <td><span class="green">Unlimited — included</span></td>
+        <td>12-month exclusive agreement, single delivery partner</td>
+      </tr>
+      <tr>
+        <td>24-month agreement</td>
+        <td>Reduced — agreed at contract</td>
+        <td>6% per hire</td>
+        <td><span class="green">Unlimited — included</span></td>
+        <td>Reduced monthly fee for longer commitment</td>
+      </tr>
+      <tr>
+        <td>36-month agreement</td>
+        <td>Further reduced — agreed at contract</td>
+        <td>Fixed at contract stage</td>
+        <td><span class="green">Unlimited — included</span></td>
+        <td>Best long-term value — supports multi-year workforce planning</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:var(--radius);padding:24px;margin-top:24px">
+    <strong>The direct delivery fee break-even is approximately 16 hires.</strong>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px;line-height:1.6">Below that, contingency is cheaper on delivery fees alone — and Syntech will tell AEI that directly. The case for the Talent Hub below 16 hires is not the delivery fee saving. It is the ATS, the pipelining, the salary benchmarking, the unlimited replacements, the pre-start audit, the UK/Turkey alignment, and the structural consistency across every hire from day one. These are things contingency recruitment does not and cannot provide — at any fee level.</p>
+  </div>
+</div>
+
+
+<!-- SECTION AUDIT — PRE-START AUDIT OVERVIEW -->
+<div id="audit" class="section">
+  <div class="section-label">
+    <div class="section-num" style="color:var(--blue);border-color:rgba(74,158,191,0.3)">◎</div>
+    <div class="section-title" style="color:var(--blue)">PRE-START AUDIT — TALENT HUB PREREQUISITE</div>
+  </div>
+  <h2>Before the Hub goes live, we audit everything.</h2>
+  <p class="lead">The pre-start audit is not a discovery call. It is a structured 5–7 day engagement in which Syntech and AEI build the hiring strategy together — before a single job brief is written, before the Hub fee is confirmed, and before any commitment is made. The audit determines where within the £3,500–£6,000 range the monthly fee lands. Simple briefs sit toward the bottom. Complex, multi-territory, high-volume requirements sit toward the top. No ambiguity, no surprises.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:32px">
+
+    <div style="background:var(--surface);padding:28px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:12px">AUDIT 01</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:8px">Hiring plan review</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Full review of AEI's 12-month hiring forecast across all role types and both territories. Headcount by department, projected start dates, and any known pipeline risks. This is the foundation everything else is built on.</p>
+    </div>
+
+    <div style="background:var(--surface);padding:28px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:12px">AUDIT 02</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:8px">Current process audit</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Review of AEI's existing recruitment workflow — time-to-hire by role, agency relationships, offer acceptance rates, and where the process is breaking down. Establishes a benchmark before the Hub improves it.</p>
+    </div>
+
+    <div style="background:var(--surface);padding:28px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:12px">AUDIT 03</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:8px">Salary benchmarking baseline</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Syntech benchmarks AEI's current salary ranges against the live Ascot corridor market. Identifies where AEI is competitive, where it is losing candidates at offer stage, and where salary positioning needs to move.</p>
+    </div>
+
+    <div style="background:var(--surface);padding:28px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:12px">AUDIT 04</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:8px">Right-to-work & sponsorship audit</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Full audit of AEI's current workforce RTW status, existing sponsored workers, upcoming visa expirations, and pipeline requirements that will require sponsorship. Connects directly to any live urgent visa cases surfaced during the audit.</p>
+    </div>
+
+    <div style="background:var(--surface);padding:28px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:12px">AUDIT 05</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:8px">Recruitment strategy build</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Syntech and AEI build the hiring strategy together — role prioritisation, sourcing channels by role type, employer brand positioning for the Ascot market, and interview process design. AEI is not handed a strategy. It is built with them.</p>
+    </div>
+
+    <div style="background:var(--surface);padding:28px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:12px">AUDIT 06</div>
+      <h4 style="font-size:15px;font-weight:700;margin-bottom:8px">Hub configuration & fee confirmation</h4>
+      <p style="font-size:13px;color:var(--text2);line-height:1.6">Based on audit findings, Syntech configures the ATS, builds role templates, and confirms the monthly Hub fee within the £3,500–£6,000 range. Agreement signed. Active sourcing begins day one.</p>
+    </div>
+
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:22px;text-align:center">
+      <div style="font-size:32px;font-weight:800;color:var(--blue)">5–7</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-top:4px">WORKING DAYS</div>
+      <div style="font-size:12px;color:var(--text2);margin-top:6px">Typical audit duration</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:22px;text-align:center">
+      <div style="font-size:32px;font-weight:800;color:var(--green)">£0</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-top:4px">AUDIT FEE</div>
+      <div style="font-size:12px;color:var(--text2);margin-top:6px">No charge during audit period</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:22px;text-align:center">
+      <div style="font-size:32px;font-weight:800;color:var(--gold)">Day 1</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);letter-spacing:0.06em;margin-top:4px">HUB GOES LIVE</div>
+      <div style="font-size:12px;color:var(--text2);margin-top:6px">First month fee invoiced on Hub launch</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION 05 — NEXT STEPS -->
+<div id="nextsteps" class="section">
+  <div class="section-label">
+    <div class="section-num">05</div>
+    <div class="section-title">NEXT STEPS</div>
+  </div>
+  <h2>Agreed actions from today</h2>
+  <p class="lead">Everything Syntech has built is live and ready. The sequence below moves from this meeting to active search — first shortlist delivered within 10 working days of instruction.</p>
+
+  <div class="sponsor-alert">
+    <div class="sponsor-alert-icon">⚠</div>
+    <div class="sponsor-alert-text"><strong>Immediate priority — James Nowak:</strong><span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span> Skilled Worker visa (CoS-2023-0047) expires <strong>17 August 2026 — 40 days.</strong> AEI must assign a new CoS via SMS and submit an extension application now. Syntech can connect AEI with an immigration solicitor this week.</div>
+  </div>
+
+  <table class="actions-table">
+    <thead>
+      <tr><th>#</th><th>Action</th><th>Owner</th><th>Target</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><strong>AEI confirms preferred model</strong> — retained, RPO, exclusive contingency, or Talent Hub</td><td class="owner-aei">AEI Systems</td><td>This meeting</td></tr>
+      <tr><td>2</td><td><strong>Syntech issues formal Terms of Business</strong> for AEI review and signature</td><td class="owner-syntech">Syntech</td><td>Within 2 working days</td></tr>
+      <tr><td>3</td><td><strong>Pre-start audit commences</strong> — if Talent Hub selected. Full hiring audit, workforce analysis, salary benchmarking, and strategy build with AEI. Hub fee confirmed.</td><td class="owner-syntech">Syntech + AEI</td><td>Within 5 working days of TOB sign-off</td></tr>
+      <tr><td>4</td><td><strong>AEI provides signed job briefs</strong> for all first mandates</td><td class="owner-aei">AEI Systems</td><td>Within 5 working days</td></tr>
+      <tr><td>5</td><td><strong>Portal login credentials issued</strong> to AEI HR lead and hiring managers</td><td class="owner-syntech">Syntech</td><td>2 days of TOB sign-off</td></tr>
+      <tr><td>6</td><td><strong>Syntech commences search</strong> on all instructed roles</td><td class="owner-syntech">Syntech</td><td>Day 1 of instruction</td></tr>
+      <tr class="urgent-row"><td>7</td><td><strong class="red">James Nowak CoS extension</strong><span style="background:rgba(240,168,50,0.1);color:var(--amber);border:1px solid rgba(240,168,50,0.22);font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px">EXAMPLE DATA</span> — immigration solicitor introductions as matter of urgency (40 days remaining)</td><td class="owner-both">Both — urgent</td><td>This week</td></tr>
+      <tr><td>8</td><td><strong>AEI assesses UK sponsor licence application</strong> — priority service recommended</td><td class="owner-aei">AEI Systems</td><td>Within 30 days</td></tr>
+      <tr><td>9</td><td><strong>First portal review call</strong> — SLA performance, pipeline update, candidate feedback</td><td class="owner-both">Both</td><td>2 weeks from instruction</td></tr>
+      <tr><td>10</td><td><strong>Quarterly business review</strong> — placements data, benchmark metrics, model review</td><td class="owner-both">Both</td><td>3 months from instruction</td></tr>
+    </tbody>
+  </table>
+
+  <div style="background:var(--green-dim);border:1px solid rgba(62,207,142,0.2);border-radius:var(--radius);padding:20px;margin-top:24px;font-size:13px;color:var(--text2)">
+    <strong class="green">Ready from day one:</strong> Portal live at <a href="https://brauner365.github.io/AEIATS/" target="_blank" style="color:var(--gold)">brauner365.github.io/AEIATS</a>. Syntech can issue TOB within 48 hours. The partnership starts the moment terms are agreed.
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="f-logo">SYNTECH <span>RECRUITMENT SOLUTIONS</span></div>
+    <div class="f-contact" style="margin-top:4px">stephen@syntechrecruitment.co.uk · www.syntechrecruitment.co.uk</div>
+  </div>
+  <div class="f-conf">CONFIDENTIAL — PREPARED EXCLUSIVELY FOR AEI SYSTEMS LTD · NOT FOR DISTRIBUTION</div>
+</footer>
+
+<script>
+function showTab(id) {
+  const panel = document.getElementById(id);
+  if (!panel) return;
+  const parent = panel.closest('.section, #hub');
+  parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  panel.classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
