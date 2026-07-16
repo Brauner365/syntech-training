@@ -8,23 +8,19 @@
 :root{--green:#00C853;--green-dim:rgba(0,200,83,0.12);--black:#0A0A0A;--surface:#111111;--surface2:#1A1A1A;--surface3:#222222;--border:rgba(255,255,255,0.08);--border-strong:rgba(255,255,255,0.15);--text:#F0F0F0;--text-muted:#888;--text-dim:#555;--red:#FF4444;--amber:#FFAA00;--blue:#378ADD;--pink:#D4537E;--font:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono','Fira Code',monospace;--radius:8px;--radius-lg:12px;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--black);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;min-height:100vh;}
-/* HEADER */
 .header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:100;}
 .logo{font-size:12px;font-weight:700;letter-spacing:.12em;}.logo span{color:var(--green);}
 .hdr-right{display:flex;align-items:center;gap:10px;}
 .trainee-btn{padding:4px 12px;border-radius:20px;border:1px solid var(--border-strong);background:transparent;color:var(--text-muted);font-size:12px;font-weight:500;cursor:pointer;font-family:var(--font);transition:all .15s;}
 .trainee-btn.active{background:var(--green);color:#000;border-color:var(--green);}
-.reset-btn{padding:4px 10px;border-radius:var(--radius);border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:11px;cursor:pointer;font-family:var(--font);transition:all .15s;}
+.reset-btn{padding:4px 10px;border-radius:var(--radius);border:1px solid var(--border);background:transparent;color:var(--text-dim);font-size:11px;cursor:pointer;font-family:var(--font);}
 .reset-btn:hover{border-color:var(--red);color:var(--red);}
-/* TABS */
-.main-tabs{display:flex;background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;}
-.main-tab{padding:12px 18px;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap;}
+.main-tabs{display:flex;background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;position:sticky;top:52px;z-index:99;}
+.main-tab{padding:12px 18px;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;}
 .main-tab.active{color:var(--green);border-bottom-color:var(--green);}
-/* VIEWS */
 .view{display:none;}.view.active{display:block;}
-/* TRAINING PLAN */
-.plan-layout{display:grid;grid-template-columns:220px 1fr;}
-.sidebar{background:var(--surface);border-right:1px solid var(--border);position:sticky;top:52px;height:calc(100vh - 100px);overflow-y:auto;padding:10px 0;}
+.plan-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 100px);}
+.sidebar{background:var(--surface);border-right:1px solid var(--border);position:sticky;top:100px;height:calc(100vh - 100px);overflow-y:auto;padding:10px 0;}
 .sb-section{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--text-dim);text-transform:uppercase;padding:10px 16px 5px;}
 .sb-item{display:flex;align-items:center;gap:8px;padding:7px 16px;cursor:pointer;transition:background .12s;border-left:2px solid transparent;}
 .sb-item:hover{background:var(--surface2);}.sb-item.sba{background:var(--green-dim);border-left-color:var(--green);}
@@ -68,7 +64,7 @@ body{background:var(--black);color:var(--text);font-family:var(--font);font-size
 .t-check{width:16px;height:16px;border-radius:3px;border:1.5px solid var(--border-strong);background:transparent;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s;margin-top:2px;}
 .t-check:hover{border-color:var(--green);}.t-check.checked{background:var(--green);border-color:var(--green);}
 .t-check.checked::after{content:'';width:8px;height:5px;border-left:2px solid #000;border-bottom:2px solid #000;transform:rotate(-45deg) translateY(-1px);display:block;}
-.t-text{font-size:12.5px;color:var(--text);line-height:1.5;transition:color .15s;}
+.t-text{font-size:12.5px;color:var(--text);line-height:1.5;}
 .task-item.done .t-text{color:var(--text-dim);text-decoration:line-through;}
 .t-meta{display:flex;align-items:center;gap:6px;margin-top:2px;}
 .t-tag{font-size:10px;padding:1px 5px;border-radius:3px;font-weight:500;}
@@ -98,22 +94,31 @@ body{background:var(--black);color:var(--text);font-family:var(--font);font-size
 .unlock-btn.show{display:block;}.unlock-btn:hover{background:var(--green);color:#000;}
 .complete-banner{margin:10px 18px;padding:9px 13px;background:var(--green-dim);border:1px solid rgba(0,200,83,.3);border-radius:var(--radius);font-size:12px;color:var(--green);display:none;}
 .complete-banner.show{display:block;}
-.sec-hdr{font-size:10px;font-weight:600;letter-spacing:.1em;color:var(--text-dim);text-transform:uppercase;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
-.sec-hdr:first-child{margin-top:0;}
-/* MODULES VIEW */
+/* PLAN MODULE CARDS */
+.plan-mods-section{margin-top:28px;}
+.plan-mods-hdr{font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--text-dim);text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--border);display:flex;align-items:baseline;gap:12px;margin-bottom:6px;}
+.plan-mods-tag{color:var(--green);font-family:var(--mono);font-size:11px;text-transform:none;letter-spacing:0;font-weight:700;}
+.plan-mods-sub{font-size:12px;color:var(--text-muted);margin-bottom:16px;}
+.plan-mods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:32px;}
+.plan-mod-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px;display:flex;flex-direction:column;gap:10px;}
+.plan-mod-card:hover{border-color:var(--border-strong);}
+.pmc-header{display:flex;align-items:center;gap:10px;}
+.pmc-icon{font-size:18px;flex-shrink:0;}
+.pmc-title{font-size:13px;font-weight:600;flex:1;}
+.pmc-time{font-size:10px;font-family:var(--mono);color:var(--green);background:var(--green-dim);padding:2px 7px;border-radius:4px;white-space:nowrap;}
+.pmc-learn{font-size:12px;color:var(--text-muted);line-height:1.6;}
+.pmc-commercial{font-size:12px;color:var(--amber);line-height:1.6;background:rgba(255,170,0,0.05);border-radius:var(--radius);padding:8px 10px;border-left:2px solid var(--amber);}
+.pmc-milestone{font-size:11px;color:var(--text-dim);}
+.pmc-milestone strong{color:var(--text-muted);}
+.pmc-btn{padding:6px 12px;border-radius:var(--radius);border:1px solid var(--border-strong);background:transparent;color:var(--text-muted);font-size:11px;cursor:pointer;font-family:var(--font);transition:all .15s;align-self:flex-start;}
+.pmc-btn:hover{border-color:var(--green);color:var(--green);}
+/* MODULES TAB */
 .modules-view{padding:20px 24px;max-width:1000px;}
-.mod-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+.mod-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
 .mod-nav-btn{padding:7px 14px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:12px;cursor:pointer;font-family:var(--font);transition:all .15s;}
 .mod-nav-btn:hover{border-color:var(--border-strong);color:var(--text);}
 .mod-nav-btn.active{border-color:var(--green);background:var(--green-dim);color:var(--green);}
-.module-panel{display:none;}
-.module-panel.active{display:block;}
-.mod-hero{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:16px;}
-.mod-hero-icon{font-size:22px;margin-bottom:6px;}
-.mod-hero-title{font-size:18px;font-weight:700;margin-bottom:3px;}
-.mod-hero-sub{font-size:13px;color:var(--text-muted);}
-.mod-body{max-width:860px;}
-/* MODULE CONTENT STYLES */
+.module-panel{display:none;}.module-panel.active{display:block;}
 .section{margin-bottom:28px;}
 .sec-t{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid var(--border);}
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:10px;}
@@ -126,6 +131,7 @@ body{background:var(--black);color:var(--text);font-family:var(--font);font-size
 .step-n{width:24px;height:24px;border-radius:50%;background:var(--surface2);border:1px solid var(--border-strong);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:var(--green);font-family:var(--mono);margin-top:1px;}
 .step-c{flex:1;}.step-t{font-size:13px;font-weight:600;margin-bottom:2px;}.step-b{font-size:12px;color:var(--text-muted);line-height:1.6;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin:2px;font-weight:500;}
 .pg{background:var(--green-dim);color:var(--green);}.pb{background:rgba(55,138,221,.12);color:var(--blue);}.pa{background:rgba(255,170,0,.1);color:var(--amber);}.pp{background:rgba(212,83,126,.1);color:var(--pink);}
 table{width:100%;border-collapse:collapse;font-size:13px;}
@@ -149,17 +155,14 @@ tr:last-child td{border-bottom:none;}
 .stat-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:14px 18px;text-align:center;}
 .stat-num{font-size:22px;font-weight:700;font-family:var(--mono);color:var(--green);line-height:1;margin-bottom:4px;}
 .stat-lbl{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .insight{background:rgba(55,138,221,.06);border:1px solid rgba(55,138,221,.2);border-radius:var(--radius);padding:12px 16px;font-size:12.5px;color:var(--blue);margin:10px 0;}
 .opp{background:rgba(212,83,126,.06);border:1px solid rgba(212,83,126,.2);border-radius:var(--radius);padding:12px 16px;font-size:12.5px;color:var(--pink);margin:10px 0;}
-/* TOAST */
-.toast{position:fixed;bottom:20px;right:20px;background:var(--surface2);border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:10px 14px;font-size:12px;z-index:999;transform:translateY(60px);opacity:0;transition:all .25s;max-width:260px;}
-.toast.show{transform:translateY(0);opacity:1;}
-.t-title{font-weight:600;margin-bottom:1px;color:var(--text);}.t-body{font-size:11px;color:var(--text-muted);}
-/* TABS for jobs module */
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:16px;}
 .tab{padding:10px 16px;font-size:13px;font-weight:500;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s;}
 .tab.active{color:var(--green);border-bottom-color:var(--green);}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--surface2);border:1px solid var(--border-strong);border-radius:var(--radius-lg);padding:10px 14px;font-size:12px;z-index:999;transform:translateY(60px);opacity:0;transition:all .25s;max-width:260px;}
+.toast.show{transform:translateY(0);opacity:1;}
+.t-title{font-weight:600;margin-bottom:1px;color:var(--text);}.t-body{font-size:11px;color:var(--text-muted);}
 </style>
 </head>
 <body>
@@ -173,49 +176,33 @@ tr:last-child td{border-bottom:none;}
     <button class="reset-btn" onclick="doReset()">↺ Reset</button>
   </div>
 </header>
-
 <div class="main-tabs">
   <div class="main-tab active" onclick="showView('plan',this)">📋 Training Plan</div>
   <div class="main-tab" onclick="showView('modules',this)">📚 Training Modules</div>
 </div>
-
-<!-- TRAINING PLAN VIEW -->
 <div id="view-plan" class="view active">
-<div class="plan-layout">
-  <aside class="sidebar" id="sb"></aside>
-  <div style="display:flex;flex-direction:column;">
-    <div class="overview" id="ov"></div>
-    <div class="plan-main" id="mn"></div>
+  <div class="plan-layout">
+    <aside class="sidebar" id="sb"></aside>
+    <div style="display:flex;flex-direction:column;">
+      <div class="overview" id="ov"></div>
+      <div class="plan-main" id="mn"></div>
+    </div>
   </div>
 </div>
-</div>
-
-<!-- MODULES VIEW -->
 <div id="view-modules" class="view">
-<div class="modules-view">
-  <div class="mod-nav" id="mod-nav">
-<button class="mod-nav-btn" onclick="showModule('cv-library')">🔍 CV Library Search</button>
-<button class="mod-nav-btn" onclick="showModule('indeed')">📋 Indeed Search</button>
-<button class="mod-nav-btn" onclick="showModule('xray')">🌐 Google X-Ray Search</button>
-<button class="mod-nav-btn" onclick="showModule('linkedin')">💼 LinkedIn Search</button>
-<button class="mod-nav-btn" onclick="showModule('atlas')">🗃️ Atlas ATS — Full Guide</button>
-<button class="mod-nav-btn" onclick="showModule('reverse-marketing')">🎯 Reverse Marketing</button>
-<button class="mod-nav-btn" onclick="showModule('client-comms')">📞 Client Communication</button>
-<button class="mod-nav-btn" onclick="showModule('delays')">⚡ Delays & Bottlenecks</button>
-<button class="mod-nav-btn" onclick="showModule('jobs')">📄 Live Job Specs</button>
-<button class="mod-nav-btn" onclick="showModule('camberley')">🏭 Camberley Signs</button>
-
-  </div>
-  <div id="mod-panels">
-
-<div id="mod-cv-library" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">🔍</div>
-    <div class="mod-hero-title">CV Library Search</div>
-    <div class="mod-hero-sub">Boolean search, filters, saved searches and alerts</div>
-  </div>
-  <div class="mod-body">
-    <div class="section">
+  <div class="modules-view">
+    <div class="mod-nav"><button class='mod-nav-btn' onclick="showModule('cv-library')">🔍 CV Library Search</button>
+<button class='mod-nav-btn' onclick="showModule('indeed')">📋 Indeed Search</button>
+<button class='mod-nav-btn' onclick="showModule('xray')">🌐 Google X-Ray Search</button>
+<button class='mod-nav-btn' onclick="showModule('linkedin')">💼 LinkedIn Search</button>
+<button class='mod-nav-btn' onclick="showModule('atlas')">🗃️ Atlas ATS</button>
+<button class='mod-nav-btn' onclick="showModule('reverse-marketing')">🎯 Reverse Marketing</button>
+<button class='mod-nav-btn' onclick="showModule('client-comms')">📞 Client Communication</button>
+<button class='mod-nav-btn' onclick="showModule('delays')">⚡ Delays and Bottlenecks</button>
+<button class='mod-nav-btn' onclick="showModule('jobs')">📄 Live Job Specs</button>
+<button class='mod-nav-btn' onclick="showModule('camberley')">🏭 Camberley Signs</button>
+</div>
+    <div id="mod-panels"><div id="mod-cv-library" class="module-panel"><div class="section">
 <div class="sec-t">What is CV Library?</div>
 <div class="card"><div class="card-body">CV Library is one of the UK's largest job boards and CV databases. As a recruiter, you have two main uses: <strong style="color:var(--text)">posting jobs</strong> to attract applicants, and <strong style="color:var(--text)">searching the CV database</strong> to proactively find candidates. The database search is where most of your sourcing time is spent.</div></div>
 </div>
@@ -257,18 +244,8 @@ Welder role:
 <div class="card"><div class="card-title" style="color:var(--green)">Green flags</div><div class="card-body">Job title matches or is closely related. Based within 20 miles. Active in last 3 months. Stable employment history. Specific tools/software named that match the job spec.</div></div>
 <div class="card"><div class="card-title" style="color:var(--red)">Red flags</div><div class="card-body">CV last updated over a year ago. Too many short tenures (under 6 months each). Location is borderline — check commute. Vague about what software or equipment used.</div></div>
 </div>
-</div>
-  </div>
-</div>
-
-<div id="mod-indeed" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">📋</div>
-    <div class="mod-hero-title">Indeed Search</div>
-    <div class="mod-hero-sub">Resume search, boolean, sponsored vs organic, INDC tag</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">Indeed for recruiters — two modes</div>
+</div></div>
+<div id="mod-indeed" class="module-panel"><div class="section"><div class="sec-t">Indeed for recruiters — two modes</div>
 <div class="grid2">
 <div class="card"><div class="card-title">Job posting (active)</div><div class="card-body">You post a job ad and wait for applications to come in. Syntech uses Indeed for this on most roles. The INDC tag at the bottom of every spec tracks which applications came from Indeed.</div></div>
 <div class="card"><div class="card-title">Resume search (proactive)</div><div class="card-body">You search Indeed's database of uploaded CVs. Available on paid plans. Useful when a role is urgent and you cannot wait for applications — you go and find candidates directly.</div></div>
@@ -299,18 +276,8 @@ Welder role example:
 <tr><td>Sponsored</td><td>Pay per click (PPC)</td><td>Pushed to top of results, stays visible</td><td>Urgent fills, hard-to-find candidates, competitive roles</td></tr>
 </tbody></table>
 <div class="warn">Sponsored posts have a daily budget — if the budget is used up by midday the ad stops showing. Check spend with Nick before sponsoring a role. Different INDC tags apply to sponsored posts (usually INSP).</div>
-</div>
-  </div>
-</div>
-
-<div id="mod-xray" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">🌐</div>
-    <div class="mod-hero-title">Google X-Ray Search</div>
-    <div class="mod-hero-sub">site: operators, advanced strings, finding hidden CVs</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">What is X-Ray searching?</div>
+</div></div>
+<div id="mod-xray" class="module-panel"><div class="section"><div class="sec-t">What is X-Ray searching?</div>
 <div class="card"><div class="card-body">X-Ray searching is using Google's advanced search operators to search inside specific websites — including LinkedIn, CV databases, GitHub, personal sites and more. It is called X-Ray because you are looking through a site's surface to find content that is not easy to find via normal browsing. Many strong candidates have their CV or LinkedIn profile indexed by Google even if they are not actively on job boards.</div></div>
 </div>
 <div class="section"><div class="sec-t">The core operators</div>
@@ -347,18 +314,8 @@ CV OR "curriculum vitae" -job -vacancy -apply</div>
 <div class="tip">Use Google's Tools menu to filter by "Past year" — this removes old results and surfaces recently updated profiles and CVs.</div>
 <div class="warn">LinkedIn profiles found via Google X-Ray are public snapshots. The data may be out of date. Always check the actual LinkedIn profile before reaching out — their current job may have changed since Google indexed it.</div>
 <div class="tip">X-Ray is most powerful for niche technical roles where CV Library and Indeed have thin databases. For the Welder Fabricator role specifically, X-Ray often surfaces candidates who are not actively looking but are findable.</div>
-</div>
-  </div>
-</div>
-
-<div id="mod-linkedin" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">💼</div>
-    <div class="mod-hero-title">LinkedIn Search</div>
-    <div class="mod-hero-sub">Boolean, filters, InMail strategy, 13k connection database</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">The Syntech LinkedIn approach</div>
+</div></div>
+<div id="mod-linkedin" class="module-panel"><div class="section"><div class="sec-t">The Syntech LinkedIn approach</div>
 <div class="card"><div class="card-body">Steve has built a LinkedIn network of 13,000+ connections — predominantly engineering and technical professionals across the UK. This is Syntech's most valuable sourcing asset. The connections are a ready database: before going to CV Library or X-Ray, always check whether the right candidates are already in the network. You can search connections using LinkedIn's People search with filters.</div></div>
 </div>
 <div class="section"><div class="sec-t">Boolean search on LinkedIn</div>
@@ -392,18 +349,8 @@ TIG AND (aluminium OR stainless) NOT "structural steel" NOT recruitment</div>
 <div class="step"><div class="step-n">2</div><div class="step-c"><div class="step-t">Connect with clients and hiring managers</div><div class="step-b">Every client contact you speak to should get a LinkedIn connection request. This keeps Syntech visible and is useful for reverse marketing.</div></div></div>
 <div class="step"><div class="step-n">3</div><div class="step-c"><div class="step-t">Engage, do not just collect</div><div class="step-b">Like or comment on posts from candidates in your network occasionally. This keeps your profile visible without sending a message — they remember your name when you do reach out.</div></div></div>
 <div class="tip">LinkedIn limits connection requests to approximately 100 per week for standard accounts. Do not burn them on irrelevant profiles — be selective and targeted.</div>
-</div>
-  </div>
-</div>
-
-<div id="mod-atlas" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">🗃️</div>
-    <div class="mod-hero-title">Atlas ATS — Full Guide</div>
-    <div class="mod-hero-sub">Candidates, notes, files, contacts, outreach, pipeline</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">What is Atlas?</div>
+</div></div>
+<div id="mod-atlas" class="module-panel"><div class="section"><div class="sec-t">What is Atlas?</div>
 <div class="card"><div class="card-body">Atlas is Syntech's Applicant Tracking System (ATS). Every candidate you speak to, every client you work with, and every job you are filling should be in Atlas. It is the single source of truth for the business. If it is not in Atlas, it does not exist — you cannot trust your own memory across 10+ active roles.</div></div>
 <div class="danger">Never store candidate information only in your head, a spreadsheet, or your inbox. GDPR compliance requires candidates to be recorded in Atlas. If a candidate asks to be removed from our records, we can only act on that request if they are in Atlas.</div>
 </div>
@@ -449,18 +396,8 @@ TIG AND (aluminium OR stainless) NOT "structural steel" NOT recruitment</div>
 <div class="card"><div class="card-title" style="color:var(--green)">Must be able to do independently</div><div class="card-body">Add a new candidate with full details. Upload and name a CV file. Leave a timestamped note. Move a candidate through pipeline stages. Add a client contact. Log a client interaction. Run a candidate search by job title and location. Build a basic outreach list.</div></div>
 <div class="card"><div class="card-title" style="color:var(--amber)">Ask Nick before doing</div><div class="card-body">Deleting any record. Merging duplicate companies. Changing billing or commercial terms on a client record. Bulk emailing more than 50 candidates. Changing pipeline stage definitions or tags.</div></div>
 </div>
-</div>
-  </div>
-</div>
-
-<div id="mod-reverse-marketing" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">🎯</div>
-    <div class="mod-hero-title">Reverse Marketing</div>
-    <div class="mod-hero-sub">Spec building, candidate-as-asset, outreach emails</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">What is reverse marketing?</div>
+</div></div>
+<div id="mod-reverse-marketing" class="module-panel"><div class="section"><div class="sec-t">What is reverse marketing?</div>
 <div class="card"><div class="card-body">Standard recruitment: client has a vacancy → you find a candidate.<br><br>Reverse marketing: you have a strong candidate → you find a client who would want to hire them.<br><br>This is how Syntech generates new clients and fills roles that do not yet exist. A well-placed reverse marketing spec can open a relationship with a company who had no live vacancy — because you showed them someone too good to ignore.</div></div>
 <div class="tip">Reverse marketing works best when the candidate is genuinely strong, has a clear and marketable skill set, and has given you permission to represent them. Never spec out a candidate without their explicit consent.</div>
 </div>
@@ -520,18 +457,8 @@ Syntech Recruitment | 01276 405 870 | www.syntechrecruitment.co.uk</div>
 <div class="section"><div class="sec-t">Tracking reverse marketing activity</div>
 <div class="card"><div class="card-body">Log every spec you send in Atlas. Note: the candidate it relates to, which companies received it, when it was sent, and what the response was. If a company replies with interest, that becomes a live client conversation — hand it to Steve immediately.</div></div>
 <div class="tip">Every reverse marketing email you send is also a Syntech brand touch. Even if this specific candidate is not right, you have introduced Syntech to a new company. Some of the best client relationships start from a spec that did not place.</div>
-</div>
-  </div>
-</div>
-
-<div id="mod-client-comms" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">📞</div>
-    <div class="mod-hero-title">Client Communication</div>
-    <div class="mod-hero-sub">Updates, expectations, tone, cadence</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">The golden rule</div>
+</div></div>
+<div id="mod-client-comms" class="module-panel"><div class="section"><div class="sec-t">The golden rule</div>
 <div class="card"><div class="card-body">Clients who do not hear from you assume nothing is happening. Even a 30-second update call or a two-line email keeps the relationship alive and demonstrates you are working the role. Silence is the fastest way to lose a client — not a bad shortlist, but silence.</div></div>
 </div>
 <div class="section"><div class="sec-t">Update cadence — when to contact</div>
@@ -583,18 +510,8 @@ Will be in touch [specific day]. Any questions in the meantime, call me on 01276
 <div class="card"><div class="card-title" style="color:var(--red)">Wrong approach</div><div class="card-body">Vague, apologetic, passive. "I've sent a few CVs over, let me know what you think." "Sorry for chasing." "I hope this is okay." You are a specialist. Act like one.</div></div>
 </div>
 <div class="danger">Never tell a client a candidate is "definitely interested" unless you have spoken to them that day and confirmed it. Candidate availability and interest can change — always verify before committing to a client.</div>
-</div>
-  </div>
-</div>
-
-<div id="mod-delays" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">⚡</div>
-    <div class="mod-hero-title">Delays & Bottlenecks</div>
-    <div class="mod-hero-sub">Identifying, escalating, and unblocking pipelines</div>
-  </div>
-  <div class="mod-body">
-    <div class="section"><div class="sec-t">Why pipelines stall</div>
+</div></div>
+<div id="mod-delays" class="module-panel"><div class="section"><div class="sec-t">Why pipelines stall</div>
 <div class="card"><div class="card-body">Every recruitment pipeline has natural friction points where things slow down or stop. Most delays are predictable — you can see them coming and act before a candidate withdraws or a client loses interest. The recruiter who proactively manages delays places more than the one who waits for things to move on their own.</div></div>
 </div>
 <div class="section"><div class="sec-t">The delay map — where things get stuck</div>
@@ -629,18 +546,8 @@ Will be in touch [specific day]. Any questions in the meantime, call me on 01276
 • Client starts asking about timelines in a pressured way<br>
 • You have not spoken to the candidate or client in 5+ days
 </div></div>
-</div>
-  </div>
-</div>
-
-<div id="mod-jobs" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">📄</div>
-    <div class="mod-hero-title">Live Job Specs</div>
-    <div class="mod-hero-sub">Vinyl Graphics Technician + Welder Fabricator</div>
-  </div>
-  <div class="mod-body">
-    <div id="tab-vinyl">
+</div></div>
+<div id="mod-jobs" class="module-panel"><div id="tab-vinyl">
 <div class="spec-card">
 <div class="spec-header">
   <div class="spec-job">Vinyl Graphics Technician</div>
@@ -746,18 +653,8 @@ Will be in touch [specific day]. Any questions in the meantime, call me on 01276
 <div class="li">Notice period and salary expectation?</div>
 <div class="li">Can you commute to Yateley GU46?</div></div>
 <div class="note">Never tell a client a candidate "ticks all the boxes" and then ask the qualification questions later. Qualify first, submit after. A CV sent without qualification is a guess — and a guess that fails reflects on Syntech.</div>
-</div></div></div>
-  </div>
-</div>
-
-<div id="mod-camberley" class="module-panel" style="display:none">
-  <div class="mod-hero">
-    <div class="mod-hero-icon">🏭</div>
-    <div class="mod-hero-title">Camberley Signs</div>
-    <div class="mod-hero-sub">Company research, intelligence and BD opportunity</div>
-  </div>
-  <div class="mod-body">
-    <div class="section">
+</div></div></div></div>
+<div id="mod-camberley" class="module-panel"><div class="section">
 <div class="grid3">
   <div class="stat-card"><div class="stat-num">2</div><div class="stat-lbl">Active live roles</div></div>
   <div class="stat-card"><div class="stat-num">GU46</div><div class="stat-lbl">Yateley, Hampshire</div></div>
@@ -809,50 +706,85 @@ Will be in touch [specific day]. Any questions in the meantime, call me on 01276
 <div class="li">Gerber Advantage is the non-negotiable for vinyl; TIG is non-negotiable for the welder</div>
 <div class="li">Client contact: confirm with Zac before calling — know the contact name and their role</div>
 <div class="li">Established company — not a start-up. They will have seen recruiters before. Be specific, be fast, be better</div>
+</div></div>
 </div>
   </div>
 </div>
-
-  </div>
-</div>
-</div>
-
 <div class="toast" id="toast"><div class="t-title" id="tt"></div><div class="t-body" id="tb"></div></div>
-
 <script>
-// VIEW SWITCHER
-function showView(id, btn) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('view-' + id).classList.add('active');
-  if(btn) btn.classList.add('active');
+const MCA={},MCJ={};
+MCA['cv-library']={icon:'🔍',title:'CV Library Search',learn:'Boolean search operators, radius filters, last-active filtering, saved searches and CV alerts. How to build a shortlist of 10 qualified candidates from scratch on any engineering role.',commercial:'CV Library is your fastest route to a shortlist. A recruiter who can run a precision boolean search in under 5 minutes and set live alerts is generating candidate flow around the clock. This is week-one money.',timeframe:'Day 8 — independent within 1 week',milestone:'First shortlist submitted from CV Library search alone'};
+MCJ['cv-library']={icon:'🔍',title:'CV Library Search',learn:'Advanced boolean, combining CV Library with other sources, building saved search banks across multiple live roles simultaneously.',commercial:'At 3+ roles you need automation. Saved searches and CV alerts mean the market comes to you. Less time sourcing = more time closing.',timeframe:'Day 4 — complete in first 48 hours',milestone:'Running live alerts on all active roles by end of week 1'};
+MCA['indeed']={icon:'📋',title:'Indeed Search',learn:'Resume search workflow, boolean on Indeed, the INDC tracking tag, sponsored vs organic posting and how to read application source data.',commercial:'Indeed is where volume comes from. Understanding the INDC tag means you know which spend is working. Knowing when to sponsor saves money and gets candidates faster.',timeframe:'Day 8 — alongside CV Library in week 2',milestone:'INDC tag applied correctly to a live role'};
+MCJ['indeed']={icon:'📋',title:'Indeed Search',learn:'Resume search as a proactive sourcing tool, building boolean strings for niche roles, understanding sponsored campaign ROI.',commercial:'For urgent roles where CV Library is thin, Indeed resume search is your backup. Knowing both means you are never stuck.',timeframe:'Day 4 — complete in first 48 hours',milestone:'Indeed resume search used to find at least 1 candidate on a live role'};
+MCA['xray']={icon:'🌐',title:'Google X-Ray Search',learn:'The site:, filetype:, intitle: and exclusion operators. How to build X-Ray strings for LinkedIn profiles and PDF CVs. Finding candidates who are not on job boards.',commercial:'X-Ray gives you access to the passive market — candidates every other recruiter cannot find. One niche X-Ray string on a hard-to-fill role is the difference between a placement and a blank week.',timeframe:'Day 9 — week 2',milestone:'First candidate added to Atlas found via X-Ray search'};
+MCJ['xray']={icon:'🌐',title:'Google X-Ray Search',learn:'Advanced operator combinations, building reusable string libraries by role type, using Google Tools filters to surface recent results.',commercial:'The recruiter who owns X-Ray owns the passive market. This is how you fill roles other agencies cannot touch.',timeframe:'Day 3 — you need this immediately',milestone:'X-Ray string library built for all active role types'};
+MCA['linkedin']={icon:'💼',title:'LinkedIn Search',learn:'Boolean in title vs keyword fields, location filters, connections filter, Open to Work filter, InMail templates, connection request strategy and the 100 per week limit.',commercial:'Syntech has 13,000 engineering connections. That is 13,000 candidates you can message for free. A recruiter who can search and convert this database is printing money before they touch a job board.',timeframe:'Day 9 — week 2',milestone:'10 LinkedIn messages sent, 3 replies, 1 candidate qualified'};
+MCJ['linkedin']={icon:'💼',title:'LinkedIn Search',learn:'Advanced LinkedIn boolean, building location clusters, messaging at volume while staying personal, connection growth strategy.',commercial:'Your LinkedIn network is your long-term asset. Every connection you add is a future candidate or client. Build it deliberately from day one.',timeframe:'Day 3 — essential in first week',milestone:'50+ targeted connections sent in first week'};
+MCA['atlas']={icon:'🗃️',title:'Atlas ATS',learn:'Adding candidates with duplicate check, logging notes correctly (what happened / agreed / next step), uploading CV files, adding client contacts, moving pipeline stages in real time, building outreach lists.',commercial:'Atlas is how Syntech protects its revenue. Every candidate not in Atlas is a GDPR risk and a BD gap. Clean Atlas = protected billings.',timeframe:'Day 2-3 — independent by end of week 1',milestone:'Atlas basics checklist signed off by Nick'};
+MCJ['atlas']={icon:'🗃️',title:'Atlas ATS',learn:'Full Atlas operation from day 1 — no hand-holding. Pipeline management across 2-3 roles, client contacts, outreach tracking.',commercial:'You are measured on what is in Atlas. If it is not logged, it did not happen.',timeframe:'Day 1-2 — independent from day 2',milestone:'Operating Atlas independently with zero prompting by day 2'};
+MCA['reverse-marketing']={icon:'🎯',title:'Reverse Marketing',learn:'How to identify specworthy candidates, build an anonymised candidate spec, the 4-step spec process, two outreach email templates, and how to track specs in Atlas.',commercial:'Reverse marketing turns your candidate pipeline into a new business machine. One strong spec sent to the right company opens a client relationship worth 50k+ over a year. This is how 20k per month billers think.',timeframe:'Week 3 — first spec draft by end of week 3',milestone:'First candidate spec written and reviewed by Steve'};
+MCJ['reverse-marketing']={icon:'🎯',title:'Reverse Marketing',learn:'Identifying reverse marketing opportunities proactively, writing specs independently, managing BD outreach pipeline.',commercial:'Every strong candidate you speak to is a potential door-opener. Reverse marketing is not an extra — it is core to how Syntech generates clients.',timeframe:'Week 2 — first spec in play by end of week 2',milestone:'First spec sent to a real prospect with Steve sign-off'};
+MCA['client-comms']={icon:'📞',title:'Client Communication',learn:'The update cadence (on submission, 48h chase, EOW, post-interview), CV submission email format, weekly update template, managing expectations, tone and confidence on client calls.',commercial:'Silence loses clients. A recruiter who updates proactively and speaks with confidence retains clients long-term. Retained clients = repeat fees. Repeat fees = 20k+ months.',timeframe:'Week 3 — practised by week 4',milestone:'First solo client update sent and approved by Zac'};
+MCJ['client-comms']={icon:'📞',title:'Client Communication',learn:'Owning client relationships independently, writing and sending updates without review, handling feedback and objections on calls.',commercial:'Client relationships are worth more than any single placement. Own them properly from day one.',timeframe:'Week 2 — own it from the start',milestone:'Client update sent independently without review'};
+MCA['delays']={icon:'⚡',title:'Delays and Bottlenecks',learn:'The delay map across 6 pipeline stages, when to escalate to Zac vs Steve, counter-offer pre-handling, the 8-item early warning checklist.',commercial:'Every delayed placement is money left on the table. Pre-handling counter-offers directly protects your fees. This module is the difference between a 10k month and a 20k month.',timeframe:'Week 3 — applied from week 4',milestone:'Correctly identifies and escalates a live pipeline issue'};
+MCJ['delays']={icon:'⚡',title:'Delays and Bottlenecks',learn:'Proactive pipeline management, reading early warning signals, handling counter-offers and client delays confidently.',commercial:'At 3+ roles you will hit delays every week. The difference between a 10k month and a 20k month is whether you unblock them fast or let them sit.',timeframe:'Week 2 — essential immediately',milestone:'Successfully unblocks a stalled pipeline stage on a live role'};
+MCA['jobs']={icon:'📄',title:'Live Job Specs',learn:'Both Camberley Signs specs cold — Vinyl Graphics Technician (35k, Gerber Advantage, Zund plotters) and Welder Fabricator (40k, TIG/MIG, aluminium and stainless). Qualification questions for each. How to brief a candidate in under 3 minutes.',commercial:'Vinyl Tech placed = approx 5,250. Welder placed = approx 6,000. Combined = 11,250 sitting on these two roles right now. Know them cold. Brief precisely. Place both.',timeframe:'Day 5 — know both specs by end of week 1',milestone:'Can brief a candidate on either role from memory without notes'};
+MCJ['jobs']={icon:'📄',title:'Live Job Specs',learn:'Both specs to brief level — qualification questions, key differentiators (Gerber vs TIG), commute radius, INDC tag. Submitting CVs by day 3.',commercial:'11,250 in fees on these two roles. Know them, fill them.',timeframe:'Day 2 — live on roles by day 3',milestone:'First CV submitted on a Camberley Signs role'};
+MCA['camberley']={icon:'🏭',title:'Camberley Signs',learn:'Who Camberley Signs are, what they make, the two live roles and combined fee value (approx 11,250), sourcing strategy for each role, commutable towns, and what to say on a client call.',commercial:'Understanding the client is what separates a recruiter who places from one who just sends CVs. First placement opens the door. Second builds the relationship. Third is retained.',timeframe:'Day 5 — read before submitting any CV',milestone:'Can describe Camberley Signs, both roles and fee value without prompting'};
+MCJ['camberley']={icon:'🏭',title:'Camberley Signs',learn:'Full client intelligence — company background, BD opportunity, sourcing strategy, fee breakdown, future opportunity beyond current roles.',commercial:'First placement opens the door. Second builds the relationship. Third is retained. This client could be worth 30k+ over 12 months if managed properly.',timeframe:'Day 2 — before going live on any role',milestone:'Identifies at least one BD opportunity beyond the two live roles'};
+
+
+function showView(id,btn){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.main-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  if(btn)btn.classList.add('active');
 }
 
-// MODULE SWITCHER
-function showModule(id) {
-  document.querySelectorAll('.module-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.mod-nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('mod-' + id).classList.add('active');
-  document.querySelectorAll('.mod-nav-btn').forEach(b => {
-    if(b.onclick && b.onclick.toString().includes(id)) b.classList.add('active');
+function showModule(id){
+  document.querySelectorAll('.module-panel').forEach(p=>{p.classList.remove('active');p.style.display='none';});
+  document.querySelectorAll('.mod-nav-btn').forEach(b=>b.classList.remove('active'));
+  const mp=document.getElementById('mod-'+id);
+  if(mp){mp.classList.add('active');mp.style.display='block';}
+  document.querySelectorAll('.mod-nav-btn').forEach(b=>{
+    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+id+"'"))b.classList.add('active');
   });
-  // scroll to top of modules view
-  document.getElementById('view-modules').scrollTop = 0;
 }
 
-// Jobs tabs
-function showTab(id, el) {
-  document.querySelectorAll('[id^="tab-"]').forEach(t => t.style.display = 'none');
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  const el2 = document.getElementById('tab-' + id);
-  if(el2) el2.style.display = 'block';
-  if(el) el.classList.add('active');
+function switchToModule(id){
+  showView('modules',document.querySelectorAll('.main-tab')[1]);
+  setTimeout(()=>showModule(id),50);
 }
 
-// Show first module by default
-document.addEventListener('DOMContentLoaded', () => {
-  showModule('cv-library');
-});
+function showTab(id,el){
+  document.querySelectorAll('[id^="tab-"]').forEach(t=>t.style.display='none');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  const el2=document.getElementById('tab-'+id);
+  if(el2)el2.style.display='block';
+  if(el)el.classList.add('active');
+}
+
+function renderModCards(trainee){
+  const cards=trainee==='ayaan'?MCA:MCJ;
+  const nm=trainee==='ayaan'?'Ayaan':'Jade';
+  let h='<div class="plan-mods-section">';
+  h+='<div class="plan-mods-hdr">Training Modules <span class="plan-mods-tag">— THAT TURN YOU INTO A £20K+ PER MONTH BILLER</span></div>';
+  h+='<div class="plan-mods-sub">What '+nm+' will master — and exactly why it matters commercially.</div>';
+  h+='<div class="plan-mods-grid">';
+  Object.keys(cards).forEach(id=>{
+    const m=cards[id];
+    h+=`<div class="plan-mod-card">
+      <div class="pmc-header"><span class="pmc-icon">${m.icon}</span><div class="pmc-title">${m.title}</div><span class="pmc-time">${m.timeframe}</span></div>
+      <div class="pmc-learn"><strong style="color:var(--text)">What ${nm} masters:</strong> ${m.learn}</div>
+      <div class="pmc-commercial">💰 ${m.commercial}</div>
+      <div class="pmc-milestone">🎯 <strong>Milestone:</strong> ${m.milestone}</div>
+      <button class="pmc-btn" onclick="switchToModule('${id}')">Open full module →</button>
+    </div>`;
+  });
+  h+='</div></div>';
+  return h;
+}
 
 
 const ST={
@@ -1027,7 +959,7 @@ function tc(t,st){let tot=0,dn=0;st.pillars.forEach(p=>p.tasks.forEach(tk=>{tot+
 function prog(t){let tot=0,dn=0;ST[t].forEach(s=>s.pillars.forEach(p=>p.tasks.forEach(tk=>{tot++;if(chk(t,tk.id))dn++;})));return{tot,dn,pct:tot?Math.round(dn/tot*100):0};}
 function syncLk(){ST[CUR].forEach((s,i)=>{s._lk=i>0&&!stDone(CUR,ST[CUR][i-1])&&!ulk(CUR,s.id);});}
 
-function render(){syncLk();rSb();rOv();rMain();}
+function render(){syncLk();rSb();rOv();rMain();const mn=document.getElementById("mn");if(mn)mn.innerHTML+=renderModCards(CUR);}
 
 function rSb(){
   const t=CUR;let h='<div class="sb-section">Training stages</div>';
@@ -1168,6 +1100,17 @@ function toast(title,body){
 
 ld();syncLk();render();
 
+
+
+// Append module cards after rMain runs
+const _rMainOriginal = rMain;
+
+// module cards appended via render()
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+  showModule('cv-library');
+});
 </script>
 </body>
 </html>
